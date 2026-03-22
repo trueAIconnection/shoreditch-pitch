@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shoreditch Bar & Kitchen — Brand Pitch v3</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,600;0,800;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FDE3CA;
+    --sand: #F5D5B0;
+    --dark-brown: #422716;
+    --mid-brown: #7B5746;
+    --warm-black: #1A1210;
+    --off-white: #FDFDFD;
+    --terracotta: #C4704B;
+    --green: #5B7A5E;
+    --olive: #4A5640;
+    --plum: #2C212B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+  }
+
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    color: var(--off-white);
+    background: var(--warm-black);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+  }
+  h1 {
+    font-size: clamp(52px, 7vw, 110px);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  h2 {
+    font-size: clamp(36px, 5vw, 72px);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  h3 {
+    font-size: clamp(24px, 3vw, 42px);
+    font-weight: 400;
+  }
+  .label {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+  p {
+    font-size: 16px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+  .lead {
+    font-size: 18px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .italic {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+  }
+
+  /* ── SLIDES ── */
+  .slide {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── FULL BLEED BG ── */
+  .slide-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+  }
+  .slide-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  /* ── SPLIT LAYOUT ── */
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+  }
+  .split--reverse {
+    direction: rtl;
+  }
+  .split--reverse > * {
+    direction: ltr;
+  }
+  .split-img {
+    position: relative;
+    overflow: hidden;
+  }
+  .split-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .split-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 70px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ── FULL COVER SLIDE ── */
+  .cover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    text-align: center;
+  }
+  .cover-inner {
+    position: relative;
+    z-index: 2;
+    padding: 60px;
+  }
+
+  /* ── STACKED LAYOUT (text over full image) ── */
+  .stacked {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+  }
+  .stacked-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 80px 60px;
+  }
+
+  /* ── THREE PANEL ── */
+  .tri-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+  }
+  .tri-panel-item {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 50px 40px;
+  }
+  .tri-panel-item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .tri-panel-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(26,18,16,0.85) 0%, rgba(26,18,16,0.1) 60%);
+  }
+  .tri-panel-item .tri-text {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ── DIVIDER LINE ── */
+  .line {
+    width: 50px;
+    height: 1px;
+    background: var(--terracotta);
+    margin: 24px 0;
+  }
+  .line--white { background: rgba(255,255,255,0.25); }
+  .line--center { margin: 24px auto; }
+
+  /* ── LIST STYLE ── */
+  .item-list {
+    list-style: none;
+    padding: 0;
+  }
+  .item-list li {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 15px;
+    font-weight: 300;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .item-list li:last-child { border-bottom: none; }
+  .item-list .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--terracotta);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 30px;
+  }
+
+  /* ── DARK / LIGHT PANELS ── */
+  .panel-dark {
+    background: var(--warm-black);
+    color: var(--off-white);
+  }
+  .panel-cream {
+    background: var(--cream);
+    color: var(--dark-brown);
+  }
+  .panel-plum {
+    background: var(--plum);
+    color: var(--off-white);
+  }
+  .panel-brown {
+    background: var(--dark-brown);
+    color: var(--cream);
+  }
+
+  /* ── GRID CARDS ── */
+  .sense-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+  .sense-card {
+    padding: 36px;
+    background: var(--warm-black);
+  }
+  .sense-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .sense-card p {
+    font-size: 14px;
+    opacity: 0.5;
+    line-height: 1.6;
+  }
+
+  /* ── COMPARISON TABLE ── */
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .comp-table th {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 16px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.4);
+  }
+  .comp-table th:first-child { text-align: left; }
+  .comp-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+  }
+  .comp-table td:first-child {
+    text-align: left;
+    font-weight: 400;
+  }
+  .check { color: var(--terracotta); font-size: 18px; }
+  .cross { color: rgba(255,255,255,0.12); font-size: 18px; }
+  .partial { color: var(--sand); font-size: 11px; font-weight: 400; }
+
+  /* ── PROGRESS BARS ── */
+  .tier {
+    margin-bottom: 28px;
+  }
+  .tier-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+  }
+  .tier-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .tier-desc {
+    font-size: 12px;
+    opacity: 0.35;
+  }
+  .tier-bar {
+    height: 3px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .tier-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--terracotta), var(--sand));
+    border-radius: 2px;
+  }
+
+  /* ── PHOTO STRIP ── */
+  .photo-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-top: 30px;
+  }
+  .photo-strip img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ── FOOTER ── */
+  .slide-footer {
+    position: absolute;
+    bottom: 28px;
+    left: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    z-index: 3;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .split { grid-template-columns: 1fr; }
+    .split-img { min-height: 40vh; }
+    .split-content { padding: 50px 30px; }
+    .tri-panel { grid-template-columns: 1fr; }
+    .tri-panel-item { min-height: 50vh; }
+    .sense-grid { grid-template-columns: 1fr; }
+
+    /* Cover slides */
+    .cover-inner { padding: 40px 24px; }
+    h1 { font-size: clamp(36px, 10vw, 52px); }
+    h2 { font-size: clamp(28px, 7vw, 36px); }
+
+    /* Slide footer */
+    .slide-footer { left: 20px; right: 20px; bottom: 16px; }
+
+    /* Gallery grid — 2 columns on mobile */
+    .gallery-grid {
+      grid-template-columns: 1fr 1fr !important;
+      grid-template-rows: auto !important;
+    }
+    .gallery-grid > div {
+      grid-row: auto !important;
+    }
+
+    /* 5-col sensory grid → 1 col on mobile */
+    .sensory-row {
+      grid-template-columns: 1fr !important;
+    }
+    .sensory-row > div {
+      border-right: none !important;
+    }
+    .energy-row {
+      grid-column: 1 / -1 !important;
+    }
+
+    /* Bottom improvements bar → stack */
+    .improvements-bar {
+      flex-direction: column !important;
+      gap: 20px !important;
+    }
+    .improvements-bar > div {
+      border-right: none !important;
+      padding-right: 0 !important;
+    }
+
+    /* Reaching Its Potential 3-col → stack */
+    .reach-row {
+      grid-template-columns: 1fr !important;
+    }
+    .reach-row .mag-img {
+      min-height: 30vh;
+    }
+    .reach-row .mag-img:first-child {
+      display: none;
+    }
+
+    /* General mobile padding */
+    .mag-text { padding: 36px 24px !important; }
+
+    /* Tags/pills wrap */
+    .label { font-size: 10px; letter-spacing: 3px; }
+
+    /* Space Is the Product header bar */
+    .space-header { padding: 30px 24px 24px !important; }
+    .space-header h2 { font-size: clamp(28px, 7vw, 40px) !important; }
+    .space-header span:last-child { display: none; }
+    .space-bottom { padding: 24px !important; }
+
+    /* Gallery header */
+    .gallery-header { padding: 24px 24px 8px !important; }
+
+    /* Disable scroll-snap on mobile for smoother scrolling */
+    html { scroll-snap-type: none; }
+  }
+
+  /* ── MAGAZINE LAYOUT ── */
+  .mag-slide {
+    background: #fff;
+    color: #1A1210;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .mag-row {
+    display: grid;
+    flex: 1;
+    min-height: 0;
+  }
+  .mag-row--text-left {
+    grid-template-columns: 38% 62%;
+  }
+  .mag-row--text-right {
+    grid-template-columns: 58% 42%;
+  }
+  .mag-divider {
+    height: 1px;
+    background: #1A1210;
+    margin: 0 40px;
+    flex-shrink: 0;
+  }
+  .mag-text {
+    padding: 50px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .mag-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: clamp(32px, 4vw, 58px);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    line-height: 0.95;
+    color: #1A1210;
+    margin-bottom: 20px;
+  }
+  .mag-text .label {
+    color: rgba(26,18,16,0.3);
+  }
+  .mag-text .line {
+    background: #1A1210;
+    width: 40px;
+    height: 2px;
+    margin: 16px 0;
+  }
+  .mag-text p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(26,18,16,0.6);
+    font-weight: 300;
+  }
+  .mag-text .item-list li {
+    border-bottom-color: rgba(0,0,0,0.06);
+    color: #1A1210;
+    font-size: 14px;
+  }
+  .mag-text .item-list .num {
+    color: #1A1210;
+    font-size: 24px;
+  }
+  .mag-text .item-list strong {
+    color: #1A1210;
+  }
+  .mag-text .item-list span {
+    color: rgba(26,18,16,0.45);
+  }
+  .mag-img {
+    overflow: hidden;
+  }
+  .mag-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .mag-text .tier {
+    margin-bottom: 20px;
+  }
+  .mag-text .tier-name {
+    color: #1A1210;
+    font-size: 16px;
+  }
+  .mag-text .tier-desc {
+    color: rgba(26,18,16,0.35);
+  }
+  .mag-text .tier-bar {
+    background: rgba(0,0,0,0.06);
+  }
+  .mag-text .tier-fill {
+    background: linear-gradient(90deg, #1A1210, #422716);
+  }
+  /* ── MAGAZINE BLACK VARIANT ── */
+  .mag-slide--black {
+    background: var(--warm-black);
+    color: var(--off-white);
+  }
+  .mag-slide--black .mag-text h2 {
+    color: var(--off-white);
+  }
+  .mag-slide--black .mag-text .line {
+    background: var(--off-white);
+  }
+  .mag-slide--black .mag-text p {
+    color: rgba(255,255,255,0.55);
+  }
+  .mag-slide--black .mag-text .item-list li {
+    border-bottom-color: rgba(255,255,255,0.08);
+    color: var(--off-white);
+  }
+  .mag-slide--black .mag-text .num {
+    color: var(--off-white);
+  }
+  .mag-slide--black .mag-text strong {
+    color: var(--off-white);
+  }
+  .mag-slide--black .mag-text span {
+    color: rgba(255,255,255,0.4);
+  }
+  .mag-slide--black .mag-text .label {
+    color: rgba(255,255,255,0.3);
+  }
+  .mag-slide--black .mag-divider {
+    background: rgba(255,255,255,0.12);
+  }
+
+  @media (max-width: 900px) {
+    .mag-row--text-left,
+    .mag-row--text-right { grid-template-columns: 1fr; }
+    .mag-img { min-height: 35vh; }
+    .mag-row { min-height: auto !important; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade { opacity: 0; animation: fadeIn 1s ease forwards; }
+  .d1 { animation-delay: 0.2s; }
+  .d2 { animation-delay: 0.4s; }
+  .d3 { animation-delay: 0.6s; }
+  .d4 { animation-delay: 0.8s; }
+
+  @media print {
+    html { scroll-snap-type: none; }
+    .slide { min-height: auto; page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 1 — HERO COVER
+     ═══════════════════════════════════════════ -->
+<section class="slide cover">
+  <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1920&q=80');">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(26,18,16,0.4) 0%, rgba(26,18,16,0.75) 100%);"></div>
+  </div>
+  <div class="cover-inner">
+    <div class="label fade" style="margin-bottom:30px; letter-spacing:6px;">Paceville &middot; St Julian's &middot; Malta</div>
+    <h1 class="fade d1">Shoreditch</h1>
+    <h3 class="fade d2" style="font-weight:300; letter-spacing:4px; text-transform:uppercase; margin-top:8px; font-size:clamp(16px,2vw,28px);">Bar &amp; Kitchen</h3>
+    <div class="line line--center fade d3"></div>
+    <p class="italic fade d3" style="font-size:20px; opacity:0.6; margin-top:10px;">A destination reimagined</p>
+    <div class="fade d4" style="margin-top:50px;">
+      <span class="label" style="letter-spacing:5px; opacity:0.3;">Brand Direction &middot; March 2026 &middot; Confidential</span>
+    </div>
+  </div>
+  <div class="slide-footer"><span>Shoreditch Bar &amp; Kitchen</span><span>01</span></div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 2 — OPPORTUNITY + WHAT WE HAVE (magazine)
+     ═══════════════════════════════════════════ -->
+<section class="slide mag-slide">
+  <!-- Top row: text left (narrow), image right (wide) — using Strong Foundations image -->
+  <div class="mag-row mag-row--text-left">
+    <div class="mag-text">
+      <h2>The<br>Opportunity</h2>
+      <div class="line"></div>
+      <p style="margin-bottom:20px;">Shoreditch has survived where most haven't. A decade in Paceville's most competitive corridor — with genuine food, a proven bar, and a prime location.</p>
+      <p style="margin-bottom:20px;">This isn't a turnaround. It's an elevation. The assets are real. The market is ready. What's missing is an intentional experience designed to capture every hour of the day.</p>
+      <ul class="item-list" style="margin-top:6px;">
+        <li><span class="num">01</span><div><strong style="font-weight:600;">Prime Location</strong><br><span>Paceville's highest-traffic corridor</span></div></li>
+        <li><span class="num">02</span><div><strong style="font-weight:600;">Genuine Food</strong><br><span>Real kitchen, quality cooking</span></div></li>
+        <li><span class="num">03</span><div><strong style="font-weight:600;">Established Bar</strong><br><span>Recognised, reliable drinks offering</span></div></li>
+        <li><span class="num">04</span><div><strong style="font-weight:600;">10+ Year Track Record</strong><br><span>Longevity competitors can't replicate</span></div></li>
+      </ul>
+    </div>
+    <div class="mag-img">
+      <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=1200&q=80" alt="Trendy coffee bar with barista and artistic wall art">
+    </div>
+  </div>
+  <div class="slide-footer" style="color:rgba(0,0,0,0.15);"><span>The Opportunity</span><span>02</span></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 5 — THE VISION (full cover)
+     ═══════════════════════════════════════════ -->
+<section class="slide cover">
+  <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=1920&q=80');">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(26,18,16,0.6) 0%, rgba(26,18,16,0.88) 100%);"></div>
+  </div>
+  <div class="cover-inner" style="max-width:900px;">
+    <div class="label" style="margin-bottom:30px;">The Vision</div>
+    <h2>One Space.<br>Three Experiences.<br>Every Hour.</h2>
+    <div class="line line--center" style="margin:30px auto;"></div>
+    <p class="italic" style="font-size:22px; opacity:0.55; max-width:600px; margin:0 auto;">A neighbourhood anchor in a tourist destination — a place with enough energy to excite and enough warmth to comfort.</p>
+  </div>
+  <div class="slide-footer"><span>Vision</span><span>05</span></div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE — REACHING ITS POTENTIAL (magazine)
+     ═══════════════════════════════════════════ -->
+<section class="slide mag-slide">
+  <div class="mag-row reach-row" style="display:grid; grid-template-columns:22% 1fr 38%; min-height:100vh;">
+    <div class="mag-img">
+      <img src="https://images.unsplash.com/photo-1540914124281-342587941389?w=1200&q=80" alt="Afternoon social dining" style="object-position:left;">
+    </div>
+    <div class="mag-text" style="padding:50px 40px;">
+      <h2>Reaching<br>Its Potential</h2>
+      <div style="display:flex; gap:6px; flex-wrap:wrap; margin:20px 0 24px;">
+        <span style="padding:8px 18px; background:#fff; color:#1A1210; border:1.5px solid #1A1210; font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase;">Café &amp; Morning</span>
+        <span style="padding:8px 18px; background:#1A1210; color:#fff; border:1.5px solid #1A1210; font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase;">Food</span>
+        <span style="padding:8px 18px; background:#fff; color:#1A1210; border:1.5px solid #1A1210; font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase;">Events</span>
+        <span style="padding:8px 18px; background:#1A1210; color:#fff; border:1.5px solid #1A1210; font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase;">Bar</span>
+      </div>
+      <div class="line"></div>
+      <ul class="item-list" style="margin-top:6px;">
+        <li><span class="num">01</span><div><strong style="font-weight:600;">Hotel Tourists</strong><br><span>Seeking character and quality</span></div></li>
+        <li><span class="num">02</span><div><strong style="font-weight:600;">Visiting Tourists</strong><br><span>Experience-driven, destination feel</span></div></li>
+        <li><span class="num">03</span><div><strong style="font-weight:600;">Paceville Bypassers</strong><br><span>The space and aroma are the hook</span></div></li>
+        <li><span class="num">04</span><div><strong style="font-weight:600;">Groups</strong><br><span>Activities, food packages, energy</span></div></li>
+        <li><span class="num">05</span><div><strong style="font-weight:600;">Morning Regulars</strong><br><span>Local workers, café-seekers</span></div></li>
+        <li><span class="num">06</span><div><strong style="font-weight:600;">Evening Crowd</strong><br><span>Event-goers, bar patrons</span></div></li>
+      </ul>
+    </div>
+    <div class="mag-img">
+      <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=1200&q=80" alt="Textures warmth and experience">
+    </div>
+  </div>
+  <div class="slide-footer" style="color:rgba(0,0,0,0.15);"><span>Reaching Its Potential</span><span>06</span></div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE — MORNING & EVENING (tri-panel)
+     ═══════════════════════════════════════════ -->
+<section class="slide">
+  <div class="tri-panel">
+    <div class="tri-panel-item">
+      <img src="home-coffee.jpg" alt="Vinyl and coffee">
+      <div class="tri-text">
+        <div class="label" style="color:var(--sand); margin-bottom:12px;">7am – 12pm</div>
+        <h3 style="text-transform:uppercase; letter-spacing:3px; margin-bottom:10px;">Morning</h3>
+        <p style="font-size:14px; opacity:0.55;">Specialty café, fresh breakfast, calm energy. Competing with dedicated coffee shops.</p>
+      </div>
+    </div>
+    <div class="tri-panel-item">
+      <img src="https://images.unsplash.com/photo-1525268323446-0505b6fe7778?w=800&q=80" alt="Evening bar atmosphere">
+      <div class="tri-text">
+        <div class="label" style="color:var(--sand); margin-bottom:12px;">6pm – Late</div>
+        <h3 style="text-transform:uppercase; letter-spacing:3px; margin-bottom:10px;">Evening</h3>
+        <p style="font-size:14px; opacity:0.55;">Programmed events, live music, group packages. The full Shoreditch experience.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>The Day</span><span>07</span></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SLIDE — THE ENERGY (gallery)
+     ═══════════════════════════════════════════ -->
+<section class="slide" style="display:flex; flex-direction:column; height:100vh; max-height:100vh; background:#1A1210;">
+  <div class="gallery-header" style="position:relative; z-index:2; padding:32px 60px 10px; text-align:center; flex-shrink:0;">
+    <div class="label" style="margin-bottom:8px;">The Energy</div>
+    <h2 style="font-size:clamp(22px,3vw,36px);">This Is the Feeling</h2>
+  </div>
+  <div class="gallery-grid" style="flex:1; display:grid; grid-template-columns:1fr 0.65fr 1fr 1fr 0.65fr; grid-template-rows:1fr 1fr; gap:3px; padding:10px; min-height:0;">
+    <!-- Row 1 -->
+    <div style="overflow:hidden;">
+      <img src="Terrasse_2.webp" alt="Terrace seating" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div style="grid-row:1/3; overflow:hidden;">
+      <img src="Screenshot 2026-03-22 010406.png" alt="DJ with vinyl shelves" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div style="overflow:hidden;">
+      <img src="Screenshot 2026-03-22 010544.png" alt="Full breakfast" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div style="overflow:hidden;">
+      <img src="gallery-01.png" alt="DJ set at coffee bar" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div style="grid-row:1/3; overflow:hidden;">
+      <img src="AB_Cafe_1001_X_Cue_Point-9842-683x1024.jpg" alt="Café brunch and coffee" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <!-- Row 2 -->
+    <div style="overflow:hidden;">
+      <img src="Screenshot 2026-03-22 010303.png" alt="Brunch plate" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div style="overflow:hidden;">
+      <img src="11.jpg" alt="Signature cocktail" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div style="overflow:hidden;">
+      <img src="470065152_18474449491014240_1223571028040261485_n.jpg" alt="Burger" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+  </div>
+  <div class="slide-footer"><span>Mood</span><span>10</span></div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE — THE SPACE IS THE PRODUCT (text only, B&W)
+     ═══════════════════════════════════════════ -->
+<section class="slide" style="display:flex; flex-direction:column; min-height:100vh;">
+  <!-- Top: Black header bar -->
+  <div class="space-header" style="background:#1A1210; padding:50px 60px 40px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end;">
+      <h2 style="font-family:'Cormorant Garamond',serif; font-weight:700; font-size:clamp(36px,5vw,64px); text-transform:uppercase; letter-spacing:0.03em; line-height:0.95; color:#fff; margin:0;">The Space Is<br>the Product</h2>
+      <span style="font-family:'Be Vietnam Pro',sans-serif; font-size:10px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:rgba(255,255,255,0.25); padding-bottom:8px;">Experience Design</span>
+    </div>
+  </div>
+  <!-- Middle: White content area -->
+  <div class="sensory-row" style="background:#fff; flex:1; display:grid; grid-template-columns:repeat(5, 1fr); gap:0;">
+    <!-- Sensory items -->
+    <div style="padding:32px 28px; border-right:1px solid rgba(0,0,0,0.08); border-bottom:1px solid rgba(0,0,0,0.08);">
+      <h4 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#1A1210; margin-bottom:8px;">Visual</h4>
+      <p style="font-size:12px; line-height:1.6; color:rgba(26,18,16,0.45);">Layered décor, plants, artwork, textures — always something new to notice.</p>
+    </div>
+    <div style="padding:32px 28px; border-right:1px solid rgba(0,0,0,0.08); border-bottom:1px solid rgba(0,0,0,0.08);">
+      <h4 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#1A1210; margin-bottom:8px;">Sound</h4>
+      <p style="font-size:12px; line-height:1.6; color:rgba(26,18,16,0.45);">Curated soundtrack that shifts with the daypart — ambient to live sets.</p>
+    </div>
+    <div style="padding:32px 28px; border-right:1px solid rgba(0,0,0,0.08); border-bottom:1px solid rgba(0,0,0,0.08);">
+      <h4 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#1A1210; margin-bottom:8px;">Aroma</h4>
+      <p style="font-size:12px; line-height:1.6; color:rgba(26,18,16,0.45);">Fresh coffee pulling people off the street. Kitchen smells. Botanicals.</p>
+    </div>
+    <div style="padding:32px 28px; border-right:1px solid rgba(0,0,0,0.08); border-bottom:1px solid rgba(0,0,0,0.08);">
+      <h4 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#1A1210; margin-bottom:8px;">Touch</h4>
+      <p style="font-size:12px; line-height:1.6; color:rgba(26,18,16,0.45);">Wood grain, cushioned seating, warm materials. Comfort that says stay.</p>
+    </div>
+    <div style="padding:32px 28px; border-bottom:1px solid rgba(0,0,0,0.08);">
+      <h4 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#1A1210; margin-bottom:8px;">Taste</h4>
+      <p style="font-size:12px; line-height:1.6; color:rgba(26,18,16,0.45);">Specialty coffee, fresh food, characterful cocktails matching the space.</p>
+    </div>
+    <!-- Energy spans full width -->
+    <div class="energy-row" style="padding:24px 28px; grid-column:1/6; border-bottom:1px solid rgba(0,0,0,0.08); display:flex; align-items:center; gap:20px;">
+      <h4 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#1A1210; margin:0; flex-shrink:0;">Energy</h4>
+      <p style="font-size:12px; line-height:1.6; color:rgba(26,18,16,0.45); margin:0;">Always something on. Never empty, never dead. A sense that things are happening — be part of it.</p>
+    </div>
+  </div>
+  <!-- Bottom: Black bar with improvements -->
+  <div class="space-bottom" style="background:#1A1210; padding:36px 60px;">
+    <div class="improvements-bar" style="display:flex; justify-content:space-between; align-items:flex-start; gap:40px;">
+      <div style="display:flex; align-items:baseline; gap:12px; flex:1; border-right:1px solid rgba(255,255,255,0.1); padding-right:30px;">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2);">01</span>
+        <div>
+          <strong style="color:#fff; font-size:13px; font-weight:600;">Space &amp; Ambience</strong>
+          <p style="font-size:11px; color:rgba(255,255,255,0.35); margin:4px 0 0; line-height:1.5;">Interior lacks comfort and visual character</p>
+        </div>
+      </div>
+      <div style="display:flex; align-items:baseline; gap:12px; flex:1; border-right:1px solid rgba(255,255,255,0.1); padding-right:30px;">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2);">02</span>
+        <div>
+          <strong style="color:#fff; font-size:13px; font-weight:600;">Product Range</strong>
+          <p style="font-size:11px; color:rgba(255,255,255,0.35); margin:4px 0 0; line-height:1.5;">No upsell architecture or café layer</p>
+        </div>
+      </div>
+      <div style="display:flex; align-items:baseline; gap:12px; flex:1; border-right:1px solid rgba(255,255,255,0.1); padding-right:30px;">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2);">03</span>
+        <div>
+          <strong style="color:#fff; font-size:13px; font-weight:600;">Programming</strong>
+          <p style="font-size:11px; color:rgba(255,255,255,0.35); margin:4px 0 0; line-height:1.5;">30+ seats with zero events or activities</p>
+        </div>
+      </div>
+      <div style="display:flex; align-items:baseline; gap:12px; flex:1;">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2);">04</span>
+        <div>
+          <strong style="color:#fff; font-size:13px; font-weight:600;">Digital Presence</strong>
+          <p style="font-size:11px; color:rgba(255,255,255,0.35); margin:4px 0 0; line-height:1.5;">No booking system or event platform</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer" style="color:rgba(0,0,0,0.15);"><span>Experience &amp; Improvements</span><span>11</span></div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE — PARTNER MARKETING (magazine white)
+     ═══════════════════════════════════════════ -->
+<section class="slide mag-slide">
+  <div class="mag-row mag-row--text-left">
+    <div class="mag-text">
+      <h2>Partner<br>Marketing</h2>
+      <div style="display:flex; gap:6px; flex-wrap:wrap; margin:20px 0 24px;">
+        <span style="padding:8px 18px; background:#fff; color:#1A1210; border:1.5px solid #1A1210; font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase;">Food &amp; Product</span>
+        <span style="padding:8px 18px; background:#1A1210; color:#fff; border:1.5px solid #1A1210; font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase;">Events</span>
+        <span style="padding:8px 18px; background:#fff; color:#1A1210; border:1.5px solid #1A1210; font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase;">Space &amp; Ambience</span>
+        <span style="padding:8px 18px; background:#1A1210; color:#fff; border:1.5px solid #1A1210; font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase;">Community</span>
+      </div>
+      <div class="line"></div>
+      <p style="margin-bottom:20px;">A well-designed space with great products and live programming generates organic reach faster than any paid campaign.</p>
+      <ul class="item-list" style="margin-top:6px;">
+        <li><span class="num">01</span><div><strong style="font-weight:600;">Recognised Drinks Brands</strong><br><span>Featured spirits, co-branded activations, revenue-share placements and cross-promotional reach</span></div></li>
+        <li><span class="num">02</span><div><strong style="font-weight:600;">Creative Collaborators</strong><br><span>Local artists for wall installations, rotating exhibitions. Musicians and DJs as programming partners</span></div></li>
+        <li><span class="num">03</span><div><strong style="font-weight:600;">Comedy &amp; Community Circuit</strong><br><span>Malta's comedy and open mic scene has no permanent home — Shoreditch can become it</span></div></li>
+      </ul>
+    </div>
+    <div class="mag-img">
+      <img src="https://images.unsplash.com/photo-1528495612343-9ca9f4a4de28?w=1200&q=80" alt="Food and atmosphere">
+    </div>
+  </div>
+  <div class="slide-footer" style="color:rgba(0,0,0,0.15);"><span>Partner Marketing</span><span>12</span></div>
+</section>
+
+</body>
+</html>
