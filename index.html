@@ -389,25 +389,50 @@
       grid-row: auto !important;
     }
 
-    /* 5-col sensory grid → 1 col on mobile */
-    .sensory-row {
+    /* Opportunity slide — newspaper grid → stack */
+    .opp-slide {
+      height: auto !important;
+      max-height: none !important;
+    }
+    .opp-row {
       grid-template-columns: 1fr !important;
     }
-    .sensory-row > div {
+    .opp-row > div {
       border-right: none !important;
     }
-    .energy-row {
-      grid-column: 1 / -1 !important;
+    .opp-text {
+      padding: 36px 24px !important;
+    }
+    .opp-img {
+      min-height: 35vh;
+    }
+    .opp-strengths {
+      padding: 28px 24px !important;
+    }
+
+    /* 3x2 sensory grid → single column */
+    .sensory-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .sensory-grid > div {
+      border-right: none !important;
+      padding: 16px 0 !important;
+    }
+    .sensory-section {
+      padding: 36px 24px 20px !important;
     }
 
     /* Bottom improvements bar → stack */
     .improvements-bar {
-      flex-direction: column !important;
+      grid-template-columns: 1fr !important;
       gap: 20px !important;
     }
     .improvements-bar > div {
       border-right: none !important;
-      padding-right: 0 !important;
+      padding: 0 !important;
+    }
+    .improvements-section {
+      padding: 28px 24px !important;
     }
 
     /* Reaching Its Potential 3-col → stack */
@@ -426,12 +451,6 @@
 
     /* Tags/pills wrap */
     .label { font-size: 10px; letter-spacing: 3px; }
-
-    /* Space Is the Product header bar */
-    .space-header { padding: 30px 24px 24px !important; }
-    .space-header h2 { font-size: clamp(28px, 7vw, 40px) !important; }
-    .space-header span:last-child { display: none; }
-    .space-bottom { padding: 24px !important; }
 
     /* Gallery header */
     .gallery-header { padding: 24px 24px 8px !important; }
@@ -609,9 +628,6 @@
     <h3 class="fade d2" style="font-weight:300; letter-spacing:4px; text-transform:uppercase; margin-top:8px; font-size:clamp(16px,2vw,28px);">Bar &amp; Kitchen</h3>
     <div class="line line--center fade d3"></div>
     <p class="italic fade d3" style="font-size:20px; opacity:0.6; margin-top:10px;">A destination reimagined</p>
-    <div class="fade d4" style="margin-top:50px;">
-      <span class="label" style="letter-spacing:5px; opacity:0.3;">Brand Direction &middot; March 2026 &middot; Confidential</span>
-    </div>
   </div>
   <div class="slide-footer"><span>Shoreditch Bar &amp; Kitchen</span><span>01</span></div>
 </section>
@@ -619,26 +635,46 @@
 <!-- ═══════════════════════════════════════════
      SLIDE 2 — OPPORTUNITY + WHAT WE HAVE (magazine)
      ═══════════════════════════════════════════ -->
-<section class="slide mag-slide">
-  <!-- Top row: text left (narrow), image right (wide) — using Strong Foundations image -->
-  <div class="mag-row mag-row--text-left">
-    <div class="mag-text">
-      <h2>The<br>Opportunity</h2>
-      <div class="line"></div>
-      <p style="margin-bottom:20px;">Shoreditch has survived where most haven't. A decade in Paceville's most competitive corridor — with genuine food, a proven bar, and a prime location.</p>
-      <p style="margin-bottom:20px;">This isn't a turnaround. It's an elevation. The assets are real. The market is ready. What's missing is an intentional experience designed to capture every hour of the day.</p>
-      <ul class="item-list" style="margin-top:6px;">
-        <li><span class="num">01</span><div><strong style="font-weight:600;">Prime Location</strong><br><span>Paceville's highest-traffic corridor</span></div></li>
-        <li><span class="num">02</span><div><strong style="font-weight:600;">Genuine Food</strong><br><span>Real kitchen, quality cooking</span></div></li>
-        <li><span class="num">03</span><div><strong style="font-weight:600;">Established Bar</strong><br><span>Recognised, reliable drinks offering</span></div></li>
-        <li><span class="num">04</span><div><strong style="font-weight:600;">10+ Year Track Record</strong><br><span>Longevity competitors can't replicate</span></div></li>
-      </ul>
+<section class="slide opp-slide" style="display:flex; flex-direction:column; height:100vh; max-height:100vh; background:#fff;">
+  <!-- Top row: title+text left (55%), outdoor image right (45%) -->
+  <div class="opp-row" style="display:grid; grid-template-columns:55% 45%; flex:1; min-height:0; border-bottom:2px solid #1A1210;">
+    <div class="opp-text" style="padding:50px 40px; display:flex; flex-direction:column; justify-content:flex-end; border-right:2px solid #1A1210;">
+      <h2 style="font-family:'Cormorant Garamond',serif; font-weight:700; font-size:clamp(36px,5vw,62px); text-transform:uppercase; letter-spacing:0.03em; line-height:0.95; color:#1A1210; margin-bottom:20px;">The<br>Opportunity</h2>
+      <p style="font-size:15px; line-height:1.7; color:rgba(26,18,16,0.55); margin-bottom:14px;">Shoreditch has survived where most haven't. A decade in Paceville's most competitive corridor — with genuine food, a proven bar, and a prime location.</p>
+      <p style="font-size:15px; line-height:1.7; color:rgba(26,18,16,0.55);">This isn't a turnaround. It's an elevation. The assets are real. The market is ready.</p>
     </div>
-    <div class="mag-img">
-      <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=1200&q=80" alt="Trendy coffee bar with barista and artistic wall art">
+    <div class="opp-img" style="overflow:hidden;">
+      <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/17/9d/13/shoreditch-bar-kitchen.jpg?w=900&h=500&s=1" alt="Shoreditch outdoor" style="width:100%; height:100%; object-fit:cover; object-position:left;">
     </div>
   </div>
-  <div class="slide-footer" style="color:rgba(0,0,0,0.15);"><span>The Opportunity</span><span>02</span></div>
+  <!-- Bottom row: bar image left (40%), strengths right (60%) -->
+  <div class="opp-row" style="display:grid; grid-template-columns:40% 60%; flex:1; min-height:0;">
+    <div class="opp-img" style="overflow:hidden; border-right:2px solid #1A1210;">
+      <img src="https://scontent.fmla1-2.fna.fbcdn.net/v/t39.30808-6/492086982_3993012184310162_4297531442445193527_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=b895b5&_nc_ohc=T32qiKOYz5gQ7kNvwF0nGk4&_nc_oc=Adoe5lzlsCRXzx71UR5MkwD24UhtRPf6yK7EBJyRNBgoRFQmXNw3Bkma0XXlDFVUSQ4&_nc_zt=23&_nc_ht=scontent.fmla1-2.fna&_nc_gid=rqiHV5ETE3nxIWsm9l8E0g&_nc_ss=7a32e&oh=00_Afw1lmLHjDydP-aPiMgZ1i8uTKNl6Jsha5jevDAFY9XOrA&oe=69C51952" alt="Shoreditch Bar & Kitchen" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+    <div class="opp-strengths" style="background:#1A1210; padding:30px 36px; display:flex; flex-direction:column; justify-content:center;">
+      <span style="font-family:'Be Vietnam Pro',sans-serif; font-size:10px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:rgba(255,255,255,0.25); display:block; margin-bottom:20px;">Business Strengths</span>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0;">
+        <div style="padding:0 20px 16px 0; border-right:1px solid rgba(255,255,255,0.08); border-bottom:1px solid rgba(255,255,255,0.08);">
+          <span class="num" style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2); line-height:1;">01</span>
+          <div style="margin-top:8px;"><strong style="font-weight:600; color:#fff; font-size:14px;">Prime Location</strong><br><span style="font-size:13px; color:rgba(255,255,255,0.4); line-height:1.6;">Paceville's highest-traffic corridor</span></div>
+        </div>
+        <div style="padding:0 0 16px 20px; border-bottom:1px solid rgba(255,255,255,0.08);">
+          <span class="num" style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2); line-height:1;">02</span>
+          <div style="margin-top:8px;"><strong style="font-weight:600; color:#fff; font-size:14px;">Genuine Food</strong><br><span style="font-size:13px; color:rgba(255,255,255,0.4); line-height:1.6;">Real kitchen, quality cooking</span></div>
+        </div>
+        <div style="padding:16px 20px 0 0; border-right:1px solid rgba(255,255,255,0.08);">
+          <span class="num" style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2); line-height:1;">03</span>
+          <div style="margin-top:8px;"><strong style="font-weight:600; color:#fff; font-size:14px;">Established Bar</strong><br><span style="font-size:13px; color:rgba(255,255,255,0.4); line-height:1.6;">Recognised, reliable drinks offering</span></div>
+        </div>
+        <div style="padding:16px 0 0 20px;">
+          <span class="num" style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2); line-height:1;">04</span>
+          <div style="margin-top:8px;"><strong style="font-weight:600; color:#fff; font-size:14px;">10+ Year Track Record</strong><br><span style="font-size:13px; color:rgba(255,255,255,0.4); line-height:1.6;">Longevity competitors can't replicate</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer" style="color:rgba(0,0,0,0.12);"><span>The Opportunity</span><span>02</span></div>
 </section>
 
 
@@ -653,9 +689,34 @@
     <div class="label" style="margin-bottom:30px;">The Vision</div>
     <h2>One Space.<br>Three Experiences.<br>Every Hour.</h2>
     <div class="line line--center" style="margin:30px auto;"></div>
-    <p class="italic" style="font-size:22px; opacity:0.55; max-width:600px; margin:0 auto;">A neighbourhood anchor in a tourist destination — a place with enough energy to excite and enough warmth to comfort.</p>
+    <p class="italic" style="font-size:20px; opacity:0.6; margin-top:10px;">A neighbourhood anchor in a tourist destination — a place with enough energy to excite and enough warmth to comfort.</p>
   </div>
   <div class="slide-footer"><span>Vision</span><span>05</span></div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE — MORNING & EVENING (tri-panel)
+     ═══════════════════════════════════════════ -->
+<section class="slide">
+  <div class="tri-panel">
+    <div class="tri-panel-item">
+      <img src="home-coffee.jpg" alt="Vinyl and coffee">
+      <div class="tri-text">
+        <div class="label" style="color:var(--sand); margin-bottom:12px;">7am – 12pm</div>
+        <h3 style="text-transform:uppercase; letter-spacing:3px; margin-bottom:10px;">Morning</h3>
+        <p style="font-size:14px; opacity:0.55;">Specialty café, fresh breakfast, calm energy. Competing with dedicated coffee shops.</p>
+      </div>
+    </div>
+    <div class="tri-panel-item">
+      <img src="https://images.unsplash.com/photo-1525268323446-0505b6fe7778?w=800&q=80" alt="Evening bar atmosphere">
+      <div class="tri-text">
+        <div class="label" style="color:var(--sand); margin-bottom:12px;">6pm – Late</div>
+        <h3 style="text-transform:uppercase; letter-spacing:3px; margin-bottom:10px;">Evening</h3>
+        <p style="font-size:14px; opacity:0.55;">Programmed events, live music, group packages. The full Shoreditch experience.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>The Day</span><span>06</span></div>
 </section>
 
 <!-- ═══════════════════════════════════════════
@@ -688,32 +749,7 @@
       <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=1200&q=80" alt="Textures warmth and experience">
     </div>
   </div>
-  <div class="slide-footer" style="color:rgba(0,0,0,0.15);"><span>Reaching Its Potential</span><span>06</span></div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     SLIDE — MORNING & EVENING (tri-panel)
-     ═══════════════════════════════════════════ -->
-<section class="slide">
-  <div class="tri-panel">
-    <div class="tri-panel-item">
-      <img src="home-coffee.jpg" alt="Vinyl and coffee">
-      <div class="tri-text">
-        <div class="label" style="color:var(--sand); margin-bottom:12px;">7am – 12pm</div>
-        <h3 style="text-transform:uppercase; letter-spacing:3px; margin-bottom:10px;">Morning</h3>
-        <p style="font-size:14px; opacity:0.55;">Specialty café, fresh breakfast, calm energy. Competing with dedicated coffee shops.</p>
-      </div>
-    </div>
-    <div class="tri-panel-item">
-      <img src="https://images.unsplash.com/photo-1525268323446-0505b6fe7778?w=800&q=80" alt="Evening bar atmosphere">
-      <div class="tri-text">
-        <div class="label" style="color:var(--sand); margin-bottom:12px;">6pm – Late</div>
-        <h3 style="text-transform:uppercase; letter-spacing:3px; margin-bottom:10px;">Evening</h3>
-        <p style="font-size:14px; opacity:0.55;">Programmed events, live music, group packages. The full Shoreditch experience.</p>
-      </div>
-    </div>
-  </div>
-  <div class="slide-footer"><span>The Day</span><span>07</span></div>
+  <div class="slide-footer" style="color:rgba(0,0,0,0.15);"><span>Reaching Its Potential</span><span>07</span></div>
 </section>
 
 
@@ -760,76 +796,63 @@
      SLIDE — THE SPACE IS THE PRODUCT (text only, B&W)
      ═══════════════════════════════════════════ -->
 <section class="slide" style="display:flex; flex-direction:column; min-height:100vh;">
-  <!-- Top: Black header bar -->
-  <div class="space-header" style="background:#1A1210; padding:50px 60px 40px;">
-    <div style="display:flex; justify-content:space-between; align-items:flex-end;">
-      <h2 style="font-family:'Cormorant Garamond',serif; font-weight:700; font-size:clamp(36px,5vw,64px); text-transform:uppercase; letter-spacing:0.03em; line-height:0.95; color:#fff; margin:0;">The Space Is<br>the Product</h2>
-      <span style="font-family:'Be Vietnam Pro',sans-serif; font-size:10px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:rgba(255,255,255,0.25); padding-bottom:8px;">Experience Design</span>
+  <!-- Top: White — title + sensory grid (3x2 with Energy as 6th) -->
+  <div class="sensory-section" style="background:#fff; flex:1; padding:60px 60px 30px; display:flex; flex-direction:column;">
+    <div style="margin-bottom:30px;">
+      <span style="font-family:'Be Vietnam Pro',sans-serif; font-size:10px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:rgba(26,18,16,0.25);">Experience Design</span>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-weight:700; font-size:clamp(36px,5vw,58px); text-transform:uppercase; letter-spacing:0.03em; line-height:0.95; color:#1A1210; margin:16px 0 0;">The Space Is the Product</h2>
+      <div style="width:50px; height:2px; background:#1A1210; margin:20px 0 0;"></div>
     </div>
-  </div>
-  <!-- Middle: White content area -->
-  <div class="sensory-row" style="background:#fff; flex:1; display:grid; grid-template-columns:repeat(5, 1fr); gap:0;">
-    <!-- Sensory items -->
-    <div style="padding:32px 28px; border-right:1px solid rgba(0,0,0,0.08); border-bottom:1px solid rgba(0,0,0,0.08);">
-      <h4 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#1A1210; margin-bottom:8px;">Visual</h4>
-      <p style="font-size:12px; line-height:1.6; color:rgba(26,18,16,0.45);">Layered décor, plants, artwork, textures — always something new to notice.</p>
-    </div>
-    <div style="padding:32px 28px; border-right:1px solid rgba(0,0,0,0.08); border-bottom:1px solid rgba(0,0,0,0.08);">
-      <h4 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#1A1210; margin-bottom:8px;">Sound</h4>
-      <p style="font-size:12px; line-height:1.6; color:rgba(26,18,16,0.45);">Curated soundtrack that shifts with the daypart — ambient to live sets.</p>
-    </div>
-    <div style="padding:32px 28px; border-right:1px solid rgba(0,0,0,0.08); border-bottom:1px solid rgba(0,0,0,0.08);">
-      <h4 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#1A1210; margin-bottom:8px;">Aroma</h4>
-      <p style="font-size:12px; line-height:1.6; color:rgba(26,18,16,0.45);">Fresh coffee pulling people off the street. Kitchen smells. Botanicals.</p>
-    </div>
-    <div style="padding:32px 28px; border-right:1px solid rgba(0,0,0,0.08); border-bottom:1px solid rgba(0,0,0,0.08);">
-      <h4 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#1A1210; margin-bottom:8px;">Touch</h4>
-      <p style="font-size:12px; line-height:1.6; color:rgba(26,18,16,0.45);">Wood grain, cushioned seating, warm materials. Comfort that says stay.</p>
-    </div>
-    <div style="padding:32px 28px; border-bottom:1px solid rgba(0,0,0,0.08);">
-      <h4 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#1A1210; margin-bottom:8px;">Taste</h4>
-      <p style="font-size:12px; line-height:1.6; color:rgba(26,18,16,0.45);">Specialty coffee, fresh food, characterful cocktails matching the space.</p>
-    </div>
-    <!-- Energy spans full width -->
-    <div class="energy-row" style="padding:24px 28px; grid-column:1/6; border-bottom:1px solid rgba(0,0,0,0.08); display:flex; align-items:center; gap:20px;">
-      <h4 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#1A1210; margin:0; flex-shrink:0;">Energy</h4>
-      <p style="font-size:12px; line-height:1.6; color:rgba(26,18,16,0.45); margin:0;">Always something on. Never empty, never dead. A sense that things are happening — be part of it.</p>
-    </div>
-  </div>
-  <!-- Bottom: Black bar with improvements -->
-  <div class="space-bottom" style="background:#1A1210; padding:36px 60px;">
-    <div class="improvements-bar" style="display:flex; justify-content:space-between; align-items:flex-start; gap:40px;">
-      <div style="display:flex; align-items:baseline; gap:12px; flex:1; border-right:1px solid rgba(255,255,255,0.1); padding-right:30px;">
-        <span style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2);">01</span>
-        <div>
-          <strong style="color:#fff; font-size:13px; font-weight:600;">Space &amp; Ambience</strong>
-          <p style="font-size:11px; color:rgba(255,255,255,0.35); margin:4px 0 0; line-height:1.5;">Interior lacks comfort and visual character</p>
-        </div>
+    <div class="sensory-grid" style="flex:1; display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; align-content:start;">
+      <div style="padding:20px 24px 20px 0; border-bottom:1px solid rgba(0,0,0,0.06); border-right:1px solid rgba(0,0,0,0.06);">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#1A1210; margin-bottom:6px;">Visual</h4>
+        <p style="font-size:12px; line-height:1.6; color:rgba(26,18,16,0.4);">Layered décor, plants, artwork, textures — always something new to notice.</p>
       </div>
-      <div style="display:flex; align-items:baseline; gap:12px; flex:1; border-right:1px solid rgba(255,255,255,0.1); padding-right:30px;">
-        <span style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2);">02</span>
-        <div>
-          <strong style="color:#fff; font-size:13px; font-weight:600;">Product Range</strong>
-          <p style="font-size:11px; color:rgba(255,255,255,0.35); margin:4px 0 0; line-height:1.5;">No upsell architecture or café layer</p>
-        </div>
+      <div style="padding:20px 24px; border-bottom:1px solid rgba(0,0,0,0.06); border-right:1px solid rgba(0,0,0,0.06);">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#1A1210; margin-bottom:6px;">Sound</h4>
+        <p style="font-size:12px; line-height:1.6; color:rgba(26,18,16,0.4);">Curated soundtrack — ambient mornings, upbeat afternoons, live evening sets.</p>
       </div>
-      <div style="display:flex; align-items:baseline; gap:12px; flex:1; border-right:1px solid rgba(255,255,255,0.1); padding-right:30px;">
-        <span style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2);">03</span>
-        <div>
-          <strong style="color:#fff; font-size:13px; font-weight:600;">Programming</strong>
-          <p style="font-size:11px; color:rgba(255,255,255,0.35); margin:4px 0 0; line-height:1.5;">30+ seats with zero events or activities</p>
-        </div>
+      <div style="padding:20px 0 20px 24px; border-bottom:1px solid rgba(0,0,0,0.06);">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#1A1210; margin-bottom:6px;">Aroma</h4>
+        <p style="font-size:12px; line-height:1.6; color:rgba(26,18,16,0.4);">Fresh coffee pulling people off the street. Kitchen smells. Botanicals.</p>
       </div>
-      <div style="display:flex; align-items:baseline; gap:12px; flex:1;">
-        <span style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2);">04</span>
-        <div>
-          <strong style="color:#fff; font-size:13px; font-weight:600;">Digital Presence</strong>
-          <p style="font-size:11px; color:rgba(255,255,255,0.35); margin:4px 0 0; line-height:1.5;">No booking system or event platform</p>
-        </div>
+      <div style="padding:20px 24px 20px 0; border-right:1px solid rgba(0,0,0,0.06);">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#1A1210; margin-bottom:6px;">Touch</h4>
+        <p style="font-size:12px; line-height:1.6; color:rgba(26,18,16,0.4);">Wood grain, cushioned seating, warm materials. Comfort that says stay.</p>
+      </div>
+      <div style="padding:20px 24px; border-right:1px solid rgba(0,0,0,0.06);">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#1A1210; margin-bottom:6px;">Taste</h4>
+        <p style="font-size:12px; line-height:1.6; color:rgba(26,18,16,0.4);">Specialty coffee, fresh food, characterful cocktails matching the space.</p>
+      </div>
+      <div style="padding:20px 0 20px 24px;">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#1A1210; margin-bottom:6px;">Energy</h4>
+        <p style="font-size:12px; line-height:1.6; color:rgba(26,18,16,0.4);">Always something on. Never empty. A sense that things are happening.</p>
       </div>
     </div>
   </div>
-  <div class="slide-footer" style="color:rgba(0,0,0,0.15);"><span>Experience &amp; Improvements</span><span>11</span></div>
+  <!-- Bottom: Black — Things to Improve -->
+  <div class="improvements-section" style="background:#1A1210; padding:40px 60px;">
+    <span style="font-family:'Be Vietnam Pro',sans-serif; font-size:10px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:rgba(255,255,255,0.25); display:block; margin-bottom:24px;">Things to Improve</span>
+    <div class="improvements-bar" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:0;">
+      <div style="padding-right:28px; border-right:1px solid rgba(255,255,255,0.08);">
+        <span class="num" style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2); line-height:1;">01</span>
+        <div style="margin-top:8px;"><strong style="font-weight:600; color:#fff; font-size:14px;">Space &amp; Ambience</strong><br><span style="font-size:13px; color:rgba(255,255,255,0.4); line-height:1.6;">Interior lacks comfort, visual character, and the atmosphere people return for</span></div>
+      </div>
+      <div style="padding:0 28px; border-right:1px solid rgba(255,255,255,0.08);">
+        <span class="num" style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2); line-height:1;">02</span>
+        <div style="margin-top:8px;"><strong style="font-weight:600; color:#fff; font-size:14px;">Product Range</strong><br><span style="font-size:13px; color:rgba(255,255,255,0.4); line-height:1.6;">Too narrow — no upsell architecture, no café layer, no reason to spend more</span></div>
+      </div>
+      <div style="padding:0 28px; border-right:1px solid rgba(255,255,255,0.08);">
+        <span class="num" style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2); line-height:1;">03</span>
+        <div style="margin-top:8px;"><strong style="font-weight:600; color:#fff; font-size:14px;">Programming</strong><br><span style="font-size:13px; color:rgba(255,255,255,0.4); line-height:1.6;">30+ seats with zero events, activities, or structured reason to visit</span></div>
+      </div>
+      <div style="padding-left:28px;">
+        <span class="num" style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2); line-height:1;">04</span>
+        <div style="margin-top:8px;"><strong style="font-weight:600; color:#fff; font-size:14px;">Digital Presence</strong><br><span style="font-size:13px; color:rgba(255,255,255,0.4); line-height:1.6;">No booking system, no event platform, no tourism discovery</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer" style="color:rgba(0,0,0,0.12);"><span>Experience &amp; Improvements</span><span>11</span></div>
 </section>
 
 <!-- ═══════════════════════════════════════════
@@ -858,6 +881,21 @@
     </div>
   </div>
   <div class="slide-footer" style="color:rgba(0,0,0,0.15);"><span>Partner Marketing</span><span>12</span></div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE — FOOTER / PREPARED BY
+     ═══════════════════════════════════════════ -->
+<section class="slide" style="display:flex; align-items:center; justify-content:center; min-height:100vh; background:#1A1210;">
+  <div style="text-align:center;">
+    <span style="font-family:'Be Vietnam Pro',sans-serif; font-size:10px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:rgba(255,255,255,0.25); display:block; margin-bottom:30px;">Prepared by</span>
+    <a href="https://www.i-zaak.com" target="_blank" style="text-decoration:none;">
+      <img src="https://www.i-zaak.com/favicon.ico" alt="I-with-an-eye" style="width:60px; height:60px; margin-bottom:20px; opacity:0.9;">
+      <h2 style="font-family:'Cormorant Garamond',serif; font-weight:700; font-size:clamp(28px,4vw,48px); text-transform:uppercase; letter-spacing:0.06em; color:#fff; margin:0;">I-with-an-eye</h2>
+    </a>
+    <div style="width:50px; height:1px; background:rgba(255,255,255,0.15); margin:24px auto;"></div>
+    <a href="https://www.i-zaak.com" target="_blank" style="font-family:'Be Vietnam Pro',sans-serif; font-size:13px; font-weight:300; color:rgba(255,255,255,0.4); text-decoration:none; letter-spacing:1px;">www.i-zaak.com</a>
+  </div>
 </section>
 
 </body>
