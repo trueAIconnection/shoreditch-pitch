@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shoreditch Bar & Kitchen — A Proposal from Dahka</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,600;0,800;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FDE3CA;
+    --sand: #F5D5B0;
+    --dark-brown: #422716;
+    --mid-brown: #7B5746;
+    --warm-black: #1A1210;
+    --off-white: #FDFDFD;
+    --terracotta: #C4704B;
+    --green: #5B7A5E;
+    --olive: #4A5640;
+    --plum: #2C212B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+  }
+
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    color: var(--off-white);
+    background: var(--warm-black);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+  }
+  h1 {
+    font-size: clamp(52px, 7vw, 110px);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  h2 {
+    font-size: clamp(36px, 5vw, 72px);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  h3 {
+    font-size: clamp(24px, 3vw, 42px);
+    font-weight: 400;
+  }
+  .label {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+  p {
+    font-size: 16px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+  .lead {
+    font-size: 18px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .italic {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+  }
+
+  /* ── SLIDES ── */
+  .slide {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── FULL BLEED BG ── */
+  .slide-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+  }
+  .slide-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  /* ── SPLIT LAYOUT ── */
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+  }
+  .split--reverse { direction: rtl; }
+  .split--reverse > * { direction: ltr; }
+  .split-img {
+    position: relative;
+    overflow: hidden;
+  }
+  .split-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .split-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 70px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ── FULL COVER SLIDE ── */
+  .cover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    text-align: center;
+  }
+  .cover-inner {
+    position: relative;
+    z-index: 2;
+    padding: 60px;
+  }
+
+  /* ── STACKED LAYOUT ── */
+  .stacked {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+  }
+  .stacked-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 80px 60px;
+  }
+
+  /* ── THREE PANEL ── */
+  .tri-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+  }
+  .tri-panel-item {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 50px 40px;
+  }
+  .tri-panel-item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .tri-panel-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(26,18,16,0.85) 0%, rgba(26,18,16,0.1) 60%);
+  }
+  .tri-panel-item .tri-text {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ── DIVIDER LINE ── */
+  .line {
+    width: 50px;
+    height: 1px;
+    background: var(--terracotta);
+    margin: 24px 0;
+  }
+  .line--white { background: rgba(255,255,255,0.25); }
+  .line--center { margin: 24px auto; }
+
+  /* ── LIST STYLE ── */
+  .item-list {
+    list-style: none;
+    padding: 0;
+  }
+  .item-list li {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 15px;
+    font-weight: 300;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .item-list li:last-child { border-bottom: none; }
+  .item-list .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--terracotta);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 30px;
+  }
+
+  /* ── DARK / LIGHT PANELS ── */
+  .panel-dark { background: var(--warm-black); color: var(--off-white); }
+  .panel-cream { background: var(--cream); color: var(--dark-brown); }
+  .panel-plum { background: var(--plum); color: var(--off-white); }
+  .panel-brown { background: var(--dark-brown); color: var(--cream); }
+
+  /* ── GRID CARDS ── */
+  .sense-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+  .sense-card {
+    padding: 36px;
+    background: var(--warm-black);
+  }
+  .sense-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .sense-card p { font-size: 14px; opacity: 0.5; line-height: 1.6; }
+
+  /* ── COMPARISON TABLE ── */
+  .comp-table { width: 100%; border-collapse: collapse; }
+  .comp-table th {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 16px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.4);
+  }
+  .comp-table th:first-child { text-align: left; }
+  .comp-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+  }
+  .comp-table td:first-child { text-align: left; font-weight: 400; }
+  .check { color: var(--terracotta); font-size: 18px; }
+  .cross { color: rgba(255,255,255,0.12); font-size: 18px; }
+  .partial { color: var(--sand); font-size: 11px; font-weight: 400; }
+
+  /* ── PROGRESS BARS ── */
+  .tier { margin-bottom: 28px; }
+  .tier-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+  .tier-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .tier-desc { font-size: 12px; opacity: 0.35; }
+  .tier-bar { height: 3px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
+  .tier-fill { height: 100%; background: linear-gradient(90deg, var(--terracotta), var(--sand)); border-radius: 2px; }
+
+  /* ── PHOTO STRIP ── */
+  .photo-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-top: 30px; }
+  .photo-strip img { width: 100%; height: 160px; object-fit: cover; display: block; }
+
+  /* ── FOOTER ── */
+  .slide-footer {
+    position: absolute;
+    bottom: 28px;
+    left: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    z-index: 3;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .split { grid-template-columns: 1fr; }
+    .split-img { min-height: 40vh; }
+    .split-content { padding: 50px 30px; }
+    .tri-panel { grid-template-columns: 1fr; }
+    .tri-panel-item { min-height: 50vh; }
+    .sense-grid { grid-template-columns: 1fr; }
+    .cover-inner { padding: 40px 24px; }
+    h1 { font-size: clamp(36px, 10vw, 52px); }
+    h2 { font-size: clamp(28px, 7vw, 36px); }
+    .slide-footer { left: 20px; right: 20px; bottom: 16px; }
+    .gallery-grid { grid-template-columns: 1fr 1fr !important; grid-template-rows: auto !important; }
+    .gallery-grid > div { grid-row: auto !important; }
+    .opp-slide { height: auto !important; max-height: none !important; }
+    .opp-row { grid-template-columns: 1fr !important; }
+    .opp-row > div { border-right: none !important; }
+    .opp-text { padding: 36px 24px !important; }
+    .opp-img { min-height: 35vh; }
+    .opp-strengths { padding: 28px 24px !important; }
+    .sensory-grid { grid-template-columns: 1fr !important; }
+    .sensory-grid > div { border-right: none !important; padding: 16px 0 !important; }
+    .sensory-section { padding: 36px 24px 20px !important; }
+    .improvements-bar { grid-template-columns: 1fr !important; gap: 20px !important; }
+    .improvements-bar > div { border-right: none !important; padding: 0 !important; }
+    .improvements-section { padding: 28px 24px !important; }
+    .reach-row { grid-template-columns: 1fr !important; }
+    .reach-row .mag-img { min-height: 30vh; }
+    .reach-row .mag-img:first-child { display: none; }
+    .mag-text { padding: 36px 24px !important; }
+    .label { font-size: 10px; letter-spacing: 3px; }
+    .gallery-header { padding: 24px 24px 8px !important; }
+    html { scroll-snap-type: none; }
+  }
+
+  /* ── MAGAZINE LAYOUT ── */
+  .mag-slide {
+    background: #fff;
+    color: #1A1210;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .mag-row { display: grid; flex: 1; min-height: 0; }
+  .mag-row--text-left { grid-template-columns: 38% 62%; }
+  .mag-row--text-right { grid-template-columns: 58% 42%; }
+  .mag-divider { height: 1px; background: #1A1210; margin: 0 40px; flex-shrink: 0; }
+  .mag-text {
+    padding: 50px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .mag-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: clamp(32px, 4vw, 58px);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    line-height: 0.95;
+    color: #1A1210;
+    margin-bottom: 20px;
+  }
+  .mag-text .label { color: rgba(26,18,16,0.3); }
+  .mag-text .line { background: #1A1210; width: 40px; height: 2px; margin: 16px 0; }
+  .mag-text p { font-size: 14px; line-height: 1.7; color: rgba(26,18,16,0.6); font-weight: 300; }
+  .mag-text .item-list li { border-bottom-color: rgba(0,0,0,0.06); color: #1A1210; font-size: 14px; }
+  .mag-text .item-list .num { color: #1A1210; font-size: 24px; }
+  .mag-text .item-list strong { color: #1A1210; }
+  .mag-text .item-list span { color: rgba(26,18,16,0.45); }
+  .mag-img { overflow: hidden; }
+  .mag-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mag-text .tier { margin-bottom: 20px; }
+  .mag-text .tier-name { color: #1A1210; font-size: 16px; }
+  .mag-text .tier-desc { color: rgba(26,18,16,0.35); }
+  .mag-text .tier-bar { background: rgba(0,0,0,0.06); }
+  .mag-text .tier-fill { background: linear-gradient(90deg, #1A1210, #422716); }
+
+  /* ── MAGAZINE BLACK VARIANT ── */
+  .mag-slide--black { background: var(--warm-black); color: var(--off-white); }
+  .mag-slide--black .mag-text h2 { color: var(--off-white); }
+  .mag-slide--black .mag-text .line { background: var(--off-white); }
+  .mag-slide--black .mag-text p { color: rgba(255,255,255,0.55); }
+  .mag-slide--black .mag-text .item-list li { border-bottom-color: rgba(255,255,255,0.08); color: var(--off-white); }
+  .mag-slide--black .mag-text .num { color: var(--off-white); }
+  .mag-slide--black .mag-text strong { color: var(--off-white); }
+  .mag-slide--black .mag-text span { color: rgba(255,255,255,0.4); }
+  .mag-slide--black .mag-text .label { color: rgba(255,255,255,0.3); }
+  .mag-slide--black .mag-divider { background: rgba(255,255,255,0.12); }
+
+  @media (max-width: 900px) {
+    .mag-row--text-left, .mag-row--text-right { grid-template-columns: 1fr; }
+    .mag-img { min-height: 35vh; }
+    .mag-row { min-height: auto !important; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade { opacity: 0; animation: fadeIn 1s ease forwards; }
+  .d1 { animation-delay: 0.2s; }
+  .d2 { animation-delay: 0.4s; }
+  .d3 { animation-delay: 0.6s; }
+  .d4 { animation-delay: 0.8s; }
+
+  /* ═══════════════════════════════════════════
+     DAHKA PROPOSAL SECTIONS
+     ═══════════════════════════════════════════ */
+
+  /* ── WHAT DAHKA OFFERS ── */
+  .dahka-offers {
+    background: #fff;
+    color: var(--warm-black);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-align: start;
+  }
+  .dahka-offers-header {
+    padding: 52px 60px 36px;
+    border-bottom: 2px solid var(--warm-black);
+    flex-shrink: 0;
+  }
+  .dahka-offers-header .label {
+    color: rgba(26,18,16,0.35);
+    margin-bottom: 12px;
+    display: block;
+    opacity: 1;
+  }
+  .dahka-offers-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: clamp(32px, 4.5vw, 58px);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    line-height: 0.95;
+    color: var(--warm-black);
+  }
+  .dahka-svc-rows { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .dahka-svc-row {
+    display: grid;
+    grid-template-columns: 44px 240px 1fr;
+    gap: 32px;
+    padding: 26px 60px;
+    border-bottom: 1px solid rgba(26,18,16,0.06);
+    align-items: baseline;
+  }
+  .dahka-svc-row:last-child { border-bottom: none; }
+  .dahka-svc-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--terracotta);
+    line-height: 1;
+  }
+  .dahka-svc-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    color: var(--warm-black);
+  }
+  .dahka-svc-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 300;
+    color: rgba(26,18,16,0.55);
+  }
+  .dahka-svc-desc strong {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 5px;
+    opacity: 1;
+  }
+  @media (max-width: 900px) {
+    .dahka-svc-row { grid-template-columns: 36px 1fr; padding: 20px 28px; gap: 16px; }
+    .dahka-svc-desc { grid-column: 2; }
+    .dahka-offers-header { padding: 36px 28px 24px; }
+  }
+
+  /* ── SMILE COVER ── */
+  .smile-cover {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--warm-black);
+  }
+  .smile-bg {
+    position: absolute; inset: 0;
+    background-image: url('home-coffee.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.18;
+  }
+  .smile-inner {
+    position: relative; z-index: 2;
+    padding: 80px 48px;
+    max-width: 860px;
+  }
+  .smile-inner .label {
+    display: block;
+    margin-bottom: 28px;
+    letter-spacing: 6px;
+    opacity: 0.4;
+  }
+  .smile-inner h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(44px, 7.5vw, 110px);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    line-height: 0.95;
+    color: var(--off-white);
+    margin-bottom: 28px;
+  }
+  .smile-divider {
+    width: 56px; height: 1px;
+    background: var(--terracotta);
+    margin: 0 auto 24px;
+  }
+  .smile-sub {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: clamp(11px, 1.1vw, 13px);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ── ENGAGEMENT SPLIT ── */
+  .engagement-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    scroll-snap-align: start;
+  }
+  .eng-panel {
+    padding: 64px 56px;
+    display: flex;
+    flex-direction: column;
+  }
+  .eng-panel--dark {
+    background: #000;
+    color: var(--off-white);
+  }
+  .eng-panel--cream {
+    background: var(--cream);
+    color: var(--dark-brown);
+  }
+  .eng-panel .eng-label {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .eng-panel--dark .eng-label { color: rgba(255,255,255,0.5); }
+  .eng-panel--cream .eng-label { color: rgba(66,39,22,0.4); }
+  .eng-panel h3,
+  .eng-slide-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 3vw, 42px);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.05;
+    margin-bottom: 10px;
+  }
+  /* Alongside slide — uppercase block, eyebrow appears AFTER the headline as a caption */
+  .eng-slide--alongside .eng-slide-content {
+    position: relative;
+  }
+  .eng-slide--alongside .eng-label {
+    order: 2;
+    margin-top: 14px;
+    margin-bottom: 0;
+    font-size: 9.5px;
+    letter-spacing: 5px;
+  }
+  .eng-slide--alongside h3 { order: 1; margin-bottom: 0; }
+  .eng-slide--alongside .eng-sub-desc { order: 3; margin-top: 18px; }
+  .eng-slide--alongside .eng-line { order: 4; }
+  .eng-slide--alongside .eng-list { order: 5; }
+  .eng-slide--alongside .eng-rate-inline { order: 6; }
+  .eng-panel--dark h3 { color: var(--off-white); }
+  .eng-panel--white h3 { color: var(--warm-black); }
+  .eng-slide-content .eng-label {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .eng-panel--dark .eng-label { color: rgba(255,255,255,0.5); }
+  .eng-panel--white .eng-label { color: rgba(26,18,16,0.4); }
+  .eng-slide-content .eng-sub-desc {
+    font-size: 12.5px;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    max-width: 540px;
+  }
+  .eng-slide-content .eng-line {
+    width: 40px; height: 1px;
+    margin-bottom: 18px;
+  }
+  .eng-panel--dark h3 { color: var(--off-white); }
+  .eng-panel--cream h3 { color: var(--dark-brown); }
+  .eng-sub-desc {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.55;
+    margin-bottom: 22px;
+  }
+  .eng-panel--dark .eng-sub-desc { color: rgba(255,255,255,0.35); }
+  .eng-panel--cream .eng-sub-desc { color: rgba(66,39,22,0.45); }
+  .eng-line {
+    width: 44px; height: 1px;
+    margin-bottom: 22px;
+  }
+  .eng-panel--dark .eng-line { background: rgba(255,255,255,0.6); }
+  .eng-panel--dark .eng-n { color: rgba(255,255,255,0.65); }
+  .eng-panel--cream .eng-line { background: var(--dark-brown); opacity: 0.3; }
+  .eng-list {
+    list-style: none;
+    flex: 1;
+  }
+  .eng-list li {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.45;
+  }
+  .eng-panel--cream .eng-list li { border-bottom-color: rgba(66,39,22,0.08); }
+  .eng-list li:last-child { border-bottom: none; }
+  .eng-list strong {
+    display: block;
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+  .eng-panel--dark .eng-list strong { color: var(--off-white); }
+  .eng-panel--cream .eng-list strong { color: var(--dark-brown); }
+  .eng-list span {
+    display: block;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .eng-panel--dark .eng-list span { color: rgba(255,255,255,0.35); }
+  .eng-panel--cream .eng-list span { color: rgba(66,39,22,0.4); }
+  .eng-n {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: var(--terracotta);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 26px;
+  }
+  .eng-panel--cream .eng-n { color: var(--dark-brown); opacity: 0.2; }
+
+  @media (max-width: 900px) {
+    .engagement-split { grid-template-columns: 1fr; }
+    .eng-panel { padding: 48px 28px; }
+  }
+
+  @media print {
+    html { scroll-snap-type: none; }
+    .slide { min-height: auto; page-break-after: always; }
+  }
+
+  /* ── DAHKA LOGO SLIDE ── */
+  .dahka-logo-slide {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .dahka-logo-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' width='200' height='200' fill='none' stroke='black' stroke-width='0.8' stroke-opacity='0.1'><rect x='20' y='20' width='160' height='160'/><rect x='20' y='20' width='160' height='160' transform='rotate(45 100 100)'/><circle cx='100' cy='100' r='60'/><circle cx='100' cy='100' r='30'/><path d='M100 40 Q120 100 100 160 Q80 100 100 40 Z'/><path d='M40 100 Q100 80 160 100 Q100 120 40 100 Z'/><path d='M58 58 Q100 90 142 58 Q110 100 142 142 Q100 110 58 142 Q90 100 58 58 Z'/><circle cx='100' cy='100' r='8'/><circle cx='100' cy='40' r='3'/><circle cx='100' cy='160' r='3'/><circle cx='40' cy='100' r='3'/><circle cx='160' cy='100' r='3'/></svg>");
+    background-size: 220px 220px;
+    pointer-events: none;
+  }
+  .dahka-logo-slide img {
+    max-width: 380px;
+    width: 42vw;
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── ENGAGEMENT SLIDES (each 100vh, standalone) ── */
+  .eng-slide {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    display: grid;
+    overflow: hidden;
+    position: relative;
+  }
+  .eng-slide--floor {
+    display: flex;
+    flex-direction: column;
+    background: #000;
+    color: var(--off-white);
+  }
+  .eng-slide--floor .eng-slide-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    min-height: 0;
+    overflow: hidden;
+  }
+  /* Food slider — bottom strip of On the Floor */
+  .eng-floor-slider {
+    height: 220px;
+    flex-shrink: 0;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .eng-floor-slider:active { cursor: grabbing; }
+  .eng-floor-slider::-webkit-scrollbar { height: 0; display: none; }
+  .eng-floor-slider { scrollbar-width: none; }
+  .eng-floor-slider img {
+    height: 100%;
+    width: auto;
+    min-width: 240px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    object-fit: cover;
+    display: block;
+  }
+  .eng-slide--alongside {
+    grid-template-columns: 2fr 3fr;
+    background: #fff;
+    color: var(--warm-black);
+  }
+  .eng-slide-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 64px 72px;
+    gap: 0;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .eng-slide-img {
+    overflow: hidden;
+    position: relative;
+    align-self: stretch;
+    min-height: 0;
+  }
+  .eng-slide-img img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .eng-slide--floor     .eng-slide-img img { object-position: 65% center; }
+  .eng-slide--alongside .eng-slide-img img { object-position: center 30%; }
+  /* Categories strip — full viewport section, 5 tall containers */
+  .eng-categories {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    min-height: 100vh;
+    scroll-snap-align: start;
+  }
+  .eng-category {
+    padding: 40px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  /* Directional flow: each container has a corner triangle in the next neighbour's colour */
+  .eng-category::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 38px;
+    height: 38px;
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+  }
+  .eng-category::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 38px;
+    height: 38px;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+  }
+  /* Top-right corner = next container's colour (reads left → right) */
+  .eng-category:nth-child(1)::after { background: #000; }
+  .eng-category:nth-child(2)::after { background: #fff; }
+  .eng-category:nth-child(3)::after { background: #000; }
+  .eng-category:nth-child(4)::after { background: #fff; }
+  .eng-category:nth-child(5)::after { display: none; }
+  /* Bottom-left corner = previous container's colour (reinforces the link) */
+  .eng-category:nth-child(1)::before { display: none; }
+  .eng-category:nth-child(2)::before { background: #fff; }
+  .eng-category:nth-child(3)::before { background: #000; }
+  .eng-category:nth-child(4)::before { background: #fff; }
+  .eng-category:nth-child(5)::before { background: #000; }
+  .eng-category:nth-child(odd) {
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' width='200' height='200' fill='none' stroke='black' stroke-width='0.8' stroke-opacity='0.06'><rect x='20' y='20' width='160' height='160'/><rect x='20' y='20' width='160' height='160' transform='rotate(45 100 100)'/><circle cx='100' cy='100' r='60'/><circle cx='100' cy='100' r='30'/><path d='M100 40 Q120 100 100 160 Q80 100 100 40 Z'/><path d='M40 100 Q100 80 160 100 Q100 120 40 100 Z'/><path d='M58 58 Q100 90 142 58 Q110 100 142 142 Q100 110 58 142 Q90 100 58 58 Z'/><circle cx='100' cy='100' r='8'/><circle cx='100' cy='40' r='3'/><circle cx='100' cy='160' r='3'/><circle cx='40' cy='100' r='3'/><circle cx='160' cy='100' r='3'/></svg>");
+    background-size: 170px 170px;
+    background-position: center;
+    color: #000;
+  }
+  .eng-category:nth-child(even) {
+    background-color: #000;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' width='200' height='200' fill='none' stroke='white' stroke-width='0.8' stroke-opacity='0.09'><rect x='20' y='20' width='160' height='160'/><rect x='20' y='20' width='160' height='160' transform='rotate(45 100 100)'/><circle cx='100' cy='100' r='60'/><circle cx='100' cy='100' r='30'/><path d='M100 40 Q120 100 100 160 Q80 100 100 40 Z'/><path d='M40 100 Q100 80 160 100 Q100 120 40 100 Z'/><path d='M58 58 Q100 90 142 58 Q110 100 142 142 Q100 110 58 142 Q90 100 58 58 Z'/><circle cx='100' cy='100' r='8'/><circle cx='100' cy='40' r='3'/><circle cx='100' cy='160' r='3'/><circle cx='40' cy='100' r='3'/><circle cx='160' cy='100' r='3'/></svg>");
+    background-size: 170px 170px;
+    background-position: center;
+    color: #fff;
+  }
+  .eng-category .cat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+  }
+  .eng-category:nth-child(odd)  .cat-num { background: #000; color: #fff; }
+  .eng-category:nth-child(even) .cat-num { background: #fff; color: #000; }
+  .eng-category .cat-body { display: flex; flex-direction: column; align-items: center; width: 100%; }
+  .eng-category strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 2vw, 30px);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    display: block;
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+  .eng-category .cat-rule {
+    width: 24px;
+    height: 1px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .eng-category:nth-child(odd)  .cat-rule { background: rgba(0,0,0,0.85); }
+  .eng-category:nth-child(even) .cat-rule { background: rgba(255,255,255,0.85); }
+  .eng-category span {
+    font-size: 12px;
+    line-height: 1.45;
+    display: block;
+    font-weight: 300;
+  }
+  .eng-category:nth-child(odd)  strong   { color: #000; }
+  .eng-category:nth-child(odd)  span     { color: rgba(0,0,0,0.55); }
+  .eng-category:nth-child(even) strong   { color: #fff; }
+  .eng-category:nth-child(even) span     { color: rgba(255,255,255,0.55); }
+  /* Rate inline — black container under the alongside list */
+  .eng-rate-inline {
+    margin-top: 28px;
+    padding: 22px 26px;
+    background: #000;
+    color: #fff;
+  }
+  .eng-rate-inline .eng-rate-label {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .eng-rate-inline .eng-rate-text {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+    display: block;
+  }
+  .eng-rate-inline .eng-rate-text strong {
+    color: #fff;
+    font-weight: 600;
+  }
+  @media (max-width: 900px) {
+    .eng-categories { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  }
+  /* white panel variant */
+  .eng-panel--white {
+    background: #fff;
+    color: var(--warm-black);
+  }
+  .eng-panel--white .eng-label { color: rgba(26,18,16,0.35); }
+  .eng-panel--white h3 { color: var(--warm-black); }
+  .eng-panel--white .eng-sub-desc { color: rgba(26,18,16,0.45); }
+  .eng-panel--white .eng-line { background: var(--warm-black); opacity: 0.2; }
+  .eng-panel--white .eng-list li { border-bottom-color: rgba(26,18,16,0.07); }
+  .eng-panel--white .eng-list strong { color: var(--warm-black); }
+  .eng-panel--white .eng-list span { color: rgba(26,18,16,0.4); }
+  .eng-panel--white .eng-n { color: var(--warm-black); opacity: 0.18; }
+  /* list — clean single-column rhythm */
+  .eng-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 36px;
+    row-gap: 0;
+    margin-top: 6px;
+    align-content: start;
+  }
+  .eng-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .eng-panel--white .eng-list li { border-bottom-color: rgba(26,18,16,0.06); }
+  .eng-list li:nth-last-child(-n+2) { border-bottom: none; }
+  .eng-list li:last-child:nth-child(odd) { grid-column: span 2; }
+  .eng-list strong { display: block; font-weight: 600; font-size: 12.5px; margin-bottom: 2px; }
+  .eng-list span { display: block; font-size: 11.5px; line-height: 1.35; }
+  .eng-n {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 22px;
+  }
+  @media (max-width: 900px) {
+    .eng-slide--floor,
+    .eng-slide--alongside { grid-template-columns: 1fr; }
+    .eng-slide--floor   .eng-slide-img { order: -1; }
+    .eng-slide-img { min-height: 35vh; }
+    .eng-slide-content { padding: 48px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 1 — HERO COVER
+     ═══════════════════════════════════════════ -->
+<section class="slide cover">
+  <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1920&q=80');">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(26,18,16,0.4) 0%, rgba(26,18,16,0.75) 100%);"></div>
+  </div>
+  <div class="cover-inner">
+    <div class="label fade" style="margin-bottom:30px; letter-spacing:6px;">Paceville &middot; St Julian's &middot; Malta</div>
+    <img src="shoreditch logo.png" alt="Shoreditch" class="fade d1" style="max-width:clamp(280px, 40vw, 500px); height:auto; margin:0 auto;">
+    <h3 class="fade d2" style="font-weight:300; letter-spacing:4px; text-transform:uppercase; margin-top:12px; font-size:clamp(16px,2vw,28px);">Bar &amp; Kitchen</h3>
+    <div class="line line--center fade d3"></div>
+    <p class="italic fade d3" style="font-size:20px; opacity:0.6; margin-top:10px;">A destination reimagined</p>
+  </div>
+  <div class="slide-footer"><span>Shoreditch Bar &amp; Kitchen</span><span>01</span></div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 2 — OPPORTUNITY + WHAT WE HAVE
+     ═══════════════════════════════════════════ -->
+<section class="slide opp-slide" style="display:flex; flex-direction:column; height:100vh; max-height:100vh; background:#fff;">
+  <div class="opp-row" style="display:grid; grid-template-columns:55% 45%; flex:1; min-height:0; border-bottom:2px solid #1A1210;">
+    <div class="opp-text" style="padding:50px 40px; display:flex; flex-direction:column; justify-content:flex-end; border-right:2px solid #1A1210;">
+      <h2 style="font-family:'Cormorant Garamond',serif; font-weight:700; font-size:clamp(36px,5vw,62px); text-transform:uppercase; letter-spacing:0.03em; line-height:0.95; color:#1A1210; margin-bottom:20px;">The<br>Opportunity</h2>
+      <p style="font-size:15px; line-height:1.7; color:rgba(26,18,16,0.55); margin-bottom:14px;">Shoreditch has survived where most haven't. A decade in Paceville's most competitive corridor — with genuine food, a proven bar, and a prime location.</p>
+      <p style="font-size:15px; line-height:1.7; color:rgba(26,18,16,0.55);">This isn't a turnaround. It's an elevation. The assets are real. The market is ready.</p>
+    </div>
+    <div class="opp-img" style="overflow:hidden;">
+      <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/17/9d/13/shoreditch-bar-kitchen.jpg?w=900&h=500&s=1" alt="Shoreditch outdoor" style="width:100%; height:100%; object-fit:cover; object-position:left;">
+    </div>
+  </div>
+  <div class="opp-row" style="display:grid; grid-template-columns:40% 60%; flex:1; min-height:0;">
+    <div class="opp-img" style="overflow:hidden; border-right:2px solid #1A1210;">
+      <img src="https://imageproxy.wolt.com/menu/menu-images/5eea30c02ee08f228b8f135f/d21d28c2-f012-11ee-bc90-42b2d1e8d371_untitled_10.png" alt="Shoreditch Bar & Kitchen" style="width:100%; height:100%; object-fit:cover; object-position:left;">
+    </div>
+    <div class="opp-strengths" style="background:#1A1210; padding:30px 36px; display:flex; flex-direction:column; justify-content:center;">
+      <span style="font-family:'Be Vietnam Pro',sans-serif; font-size:10px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:rgba(255,255,255,0.25); display:block; margin-bottom:20px;">Business Strengths</span>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0;">
+        <div style="padding:0 20px 16px 0; border-right:1px solid rgba(255,255,255,0.08); border-bottom:1px solid rgba(255,255,255,0.08);">
+          <span class="num" style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2); line-height:1;">01</span>
+          <div style="margin-top:8px;"><strong style="font-weight:600; color:#fff; font-size:14px;">Prime Location</strong><br><span style="font-size:13px; color:rgba(255,255,255,0.4); line-height:1.6;">Paceville's highest-traffic corridor</span></div>
+        </div>
+        <div style="padding:0 0 16px 20px; border-bottom:1px solid rgba(255,255,255,0.08);">
+          <span class="num" style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2); line-height:1;">02</span>
+          <div style="margin-top:8px;"><strong style="font-weight:600; color:#fff; font-size:14px;">Genuine Food</strong><br><span style="font-size:13px; color:rgba(255,255,255,0.4); line-height:1.6;">Real kitchen, quality cooking</span></div>
+        </div>
+        <div style="padding:16px 20px 0 0; border-right:1px solid rgba(255,255,255,0.08);">
+          <span class="num" style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2); line-height:1;">03</span>
+          <div style="margin-top:8px;"><strong style="font-weight:600; color:#fff; font-size:14px;">Established Bar</strong><br><span style="font-size:13px; color:rgba(255,255,255,0.4); line-height:1.6;">Recognised, reliable drinks offering</span></div>
+        </div>
+        <div style="padding:16px 0 0 20px;">
+          <span class="num" style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:rgba(255,255,255,0.2); line-height:1;">04</span>
+          <div style="margin-top:8px;"><strong style="font-weight:600; color:#fff; font-size:14px;">10+ Year Track Record</strong><br><span style="font-size:13px; color:rgba(255,255,255,0.4); line-height:1.6;">Longevity competitors can't replicate</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer" style="color:rgba(0,0,0,0.12);"><span>The Opportunity</span><span>02</span></div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 5 — THE VISION
+     ═══════════════════════════════════════════ -->
+<section class="slide cover">
+  <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=1920&q=80');">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(26,18,16,0.6) 0%, rgba(26,18,16,0.88) 100%);"></div>
+  </div>
+  <div class="cover-inner" style="max-width:900px;">
+    <div class="label" style="margin-bottom:30px;">The Vision</div>
+    <h2>One Space.<br>Two Experiences.</h2>
+    <div class="line line--center" style="margin:30px auto;"></div>
+    <p class="italic" style="font-size:20px; opacity:0.6; margin-top:10px;">A neighbourhood anchor in a tourist destination — a place with enough energy to excite and enough warmth to comfort.</p>
+  </div>
+  <div class="slide-footer"><span>Vision</span><span>05</span></div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 6 — MORNING & EVENING
+     ═══════════════════════════════════════════ -->
+<section class="slide">
+  <div class="tri-panel">
+    <div class="tri-panel-item">
+      <img src="home-coffee.jpg" alt="Vinyl and coffee">
+      <div class="tri-text">
+        <div class="label" style="color:var(--sand); margin-bottom:12px;">7am – 12pm</div>
+        <h3 style="text-transform:uppercase; letter-spacing:3px; margin-bottom:10px;">Morning</h3>
+        <p style="font-size:14px; opacity:0.55;">Specialty café, fresh breakfast, calm energy. Competing with dedicated coffee shops.</p>
+      </div>
+    </div>
+    <div class="tri-panel-item">
+      <img src="https://images.unsplash.com/photo-1525268323446-0505b6fe7778?w=800&q=80" alt="Evening bar atmosphere">
+      <div class="tri-text">
+        <div class="label" style="color:var(--sand); margin-bottom:12px;">6pm – Late</div>
+        <h3 style="text-transform:uppercase; letter-spacing:3px; margin-bottom:10px;">Evening</h3>
+        <p style="font-size:14px; opacity:0.55;">Programmed events, live music, group packages. The full Shoreditch experience.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>The Day</span><span>06</span></div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 7 — REACHING ITS POTENTIAL
+     ═══════════════════════════════════════════ -->
+<section class="slide mag-slide">
+  <div class="mag-row reach-row" style="display:grid; grid-template-columns:22% 1fr 38%; min-height:100vh;">
+    <div class="mag-img">
+      <img src="https://images.unsplash.com/photo-1540914124281-342587941389?w=1200&q=80" alt="Afternoon social dining" style="object-position:left;">
+    </div>
+    <div class="mag-text" style="padding:50px 40px;">
+      <h2>Reaching<br>Its Potential</h2>
+      <div style="display:flex; gap:6px; flex-wrap:wrap; margin:20px 0 24px;">
+        <span style="padding:8px 18px; background:#fff; color:#1A1210; border:1.5px solid #1A1210; font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase;">Café &amp; Morning</span>
+        <span style="padding:8px 18px; background:#1A1210; color:#fff; border:1.5px solid #1A1210; font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase;">Food</span>
+        <span style="padding:8px 18px; background:#fff; color:#1A1210; border:1.5px solid #1A1210; font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase;">Events</span>
+        <span style="padding:8px 18px; background:#1A1210; color:#fff; border:1.5px solid #1A1210; font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase;">Bar</span>
+      </div>
+      <div class="line"></div>
+      <ul class="item-list" style="margin-top:6px;">
+        <li><span class="num">01</span><div><strong style="font-weight:600;">Hotel Tourists</strong><br><span>Seeking character and quality</span></div></li>
+        <li><span class="num">02</span><div><strong style="font-weight:600;">Visiting Tourists</strong><br><span>Experience-driven, destination feel</span></div></li>
+        <li><span class="num">03</span><div><strong style="font-weight:600;">Paceville Bypassers</strong><br><span>The space and aroma are the hook</span></div></li>
+        <li><span class="num">04</span><div><strong style="font-weight:600;">Groups</strong><br><span>Activities, food packages, energy</span></div></li>
+        <li><span class="num">05</span><div><strong style="font-weight:600;">Morning Regulars</strong><br><span>Local workers, café-seekers</span></div></li>
+        <li><span class="num">06</span><div><strong style="font-weight:600;">Evening Crowd</strong><br><span>Event-goers, bar patrons</span></div></li>
+      </ul>
+    </div>
+    <div class="mag-img">
+      <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=1200&q=80" alt="Textures warmth and experience">
+    </div>
+  </div>
+  <div class="slide-footer" style="color:rgba(0,0,0,0.15);"><span>Reaching Its Potential</span><span>07</span></div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SLIDE 10 — THE ENERGY (gallery)
+     ═══════════════════════════════════════════ -->
+<section class="slide" style="display:flex; flex-direction:column; height:100vh; max-height:100vh; background:#1A1210;">
+  <div class="gallery-header" style="position:relative; z-index:2; padding:32px 60px 10px; text-align:center; flex-shrink:0;">
+    <div class="label" style="margin-bottom:8px;">The Energy</div>
+    <h2 style="font-size:clamp(22px,3vw,36px);">This Is the Feeling</h2>
+  </div>
+  <div class="gallery-grid" style="flex:1; display:grid; grid-template-columns:1fr 0.65fr 1fr 1fr 0.65fr; grid-template-rows:1fr 1fr; gap:3px; padding:10px; min-height:0;">
+    <div style="overflow:hidden;">
+      <img src="Terrasse_2.webp" alt="Terrace seating" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div style="grid-row:1/3; overflow:hidden;">
+      <img src="Screenshot 2026-03-22 010406.png" alt="DJ with vinyl shelves" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div style="overflow:hidden;">
+      <img src="Screenshot 2026-03-22 010544.png" alt="Full breakfast" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div style="overflow:hidden;">
+      <img src="gallery-01.png" alt="DJ set at coffee bar" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div style="grid-row:1/3; overflow:hidden;">
+      <img src="AB_Cafe_1001_X_Cue_Point-9842-683x1024.jpg" alt="Café brunch and coffee" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div style="overflow:hidden;">
+      <img src="Screenshot 2026-03-22 010303.png" alt="Brunch plate" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div style="overflow:hidden;">
+      <img src="11.jpg" alt="Signature cocktail" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div style="overflow:hidden;">
+      <img src="470065152_18474449491014240_1223571028040261485_n.jpg" alt="Burger" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+  </div>
+  <div class="slide-footer"><span>Mood</span><span>10</span></div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     DAHKA — LOGO TRANSITION
+     ═══════════════════════════════════════════ -->
+<section class="dahka-logo-slide">
+  <img src="../../assets/logos/dahka-logo-original.png" alt="Dahka">
+</section>
+
+<!-- ═══════════════════════════════════════════
+     DAHKA — WHAT DAHKA OFFERS TO SHOREDITCH
+     ═══════════════════════════════════════════ -->
+<section class="slide dahka-offers">
+  <div class="dahka-offers-header">
+    <span class="label">What Dahka Offers to Shoreditch</span>
+    <h2>Four Lines.<br>One Team.</h2>
+  </div>
+  <div class="dahka-svc-rows">
+    <div class="dahka-svc-row">
+      <span class="dahka-svc-num">01</span>
+      <span class="dahka-svc-name">Gastronomy &amp; Drinks</span>
+      <div class="dahka-svc-desc">
+        <strong>For Shoreditch</strong>
+        Specialty coffee programme in the morning, breakfast and brunch service push, cocktail menu &amp; late night treats.
+      </div>
+    </div>
+    <div class="dahka-svc-row">
+      <span class="dahka-svc-num">02</span>
+      <span class="dahka-svc-name">Service &amp; Training</span>
+      <div class="dahka-svc-desc">
+        <strong>For Shoreditch</strong>
+        A full 360-degree service and training programme — coffee, mixology, service &amp; hosting, and kitchen. Flexible hours, built around your team.
+      </div>
+    </div>
+    <div class="dahka-svc-row">
+      <span class="dahka-svc-num">03</span>
+      <span class="dahka-svc-name">Events</span>
+      <div class="dahka-svc-desc">
+        <strong>For Shoreditch</strong>
+        Comedy nights, DJ sessions, live sets, group packages. We design the format, programme the calendar, run the floor, and handle the content. You open the door.
+      </div>
+    </div>
+    <div class="dahka-svc-row">
+      <span class="dahka-svc-num">04</span>
+      <span class="dahka-svc-name">Promotion &amp; Campaigns</span>
+      <div class="dahka-svc-desc">
+        <strong>For Shoreditch</strong>
+        Social media strategy and execution across every service pillar — building credibility, trust, discovery, and attention.
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer" style="color:rgba(0,0,0,0.12);"><span>What Dahka Offers</span><span>—</span></div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     DAHKA — ON THE FLOOR (100vh dark)
+     ═══════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════
+     DAHKA — FIVE PILLARS (100vh)
+     ═══════════════════════════════════════════ -->
+<div class="eng-categories">
+  <div class="eng-category">
+    <div class="cat-body"><strong>Branding</strong><span class="cat-rule"></span><span>Concept, voice, identity</span></div>
+  </div>
+  <div class="eng-category">
+    <div class="cat-body"><strong>Quality</strong><span class="cat-rule"></span><span>Menus, drinks, coffee</span></div>
+  </div>
+  <div class="eng-category">
+    <div class="cat-body"><strong>System</strong><span class="cat-rule"></span><span>Operations, team, suppliers</span></div>
+  </div>
+  <div class="eng-category">
+    <div class="cat-body"><strong>Marketing</strong><span class="cat-rule"></span><span>Social and campaign</span></div>
+  </div>
+  <div class="eng-category">
+    <div class="cat-body"><strong>Events</strong><span class="cat-rule"></span><span>Calendar, design, run</span></div>
+  </div>
+</div>
+
+<section class="eng-slide eng-slide--floor">
+  <div class="eng-slide-grid">
+    <div class="eng-slide-content eng-panel--dark">
+      <span class="eng-label">On the floor</span>
+      <h3>One of Ours,<br>On Your Floor.</h3>
+      <p class="eng-sub-desc">A trained Dahka host takes a real position in your team for three months — same shifts, same uniform, same rhythm.</p>
+      <div class="eng-line"></div>
+      <ul class="eng-list">
+        <li>
+          <span class="eng-n">01</span>
+          <div><strong>Reads the room from the inside</strong><span>How service flows, where it slips, what guests actually feel</span></div>
+        </li>
+        <li>
+          <span class="eng-n">02</span>
+          <div><strong>Trusted performance</strong><span>Implementing best practices at any given time</span></div>
+        </li>
+        <li>
+          <span class="eng-n">03</span>
+          <div><strong>Lifts the standard by being there</strong><span>A Dahka-trained host on the floor pulls everyone up — quietly</span></div>
+        </li>
+        <li>
+          <span class="eng-n">04</span>
+          <div><strong>Trained professionals, sharing in real time</strong><span>Coffee, hosting, drinks — taught at the bar, mid-shift, by someone who's already done it</span></div>
+        </li>
+      </ul>
+    </div>
+    <div class="eng-slide-img">
+      <img src="dahka-floor.jpg" alt="On the floor">
+    </div>
+  </div>
+  <div class="eng-floor-slider">
+    <img src="flatwhite.jpg" alt="Flat white">
+    <img src="stulle sandwich.jpg" alt="Stulle sandwich">
+    <img src="Wal-bergine Salad - Walnut Aubergine.jpg" alt="Wal-bergine salad">
+    <img src="freddo111.png" alt="Freddo">
+    <img src="baba ganush.jpg" alt="Baba ganoush">
+    <img src="cocktails.jpg" alt="Cocktails and small plates">
+    <img src="duck suve.jpg" alt="Duck sous-vide">
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     DAHKA — ALONGSIDE YOU (100vh white)
+     ═══════════════════════════════════════════ -->
+<section class="eng-slide eng-slide--alongside">
+  <div class="eng-slide-img">
+    <img src="I-zaak-photo--chef-love.png" alt="Alongside you">
+  </div>
+  <div class="eng-slide-content eng-panel--white">
+    <span class="eng-label">Alongside you</span>
+    <h3>Building it with you,<br>in parallel.</h3>
+    <p class="eng-sub-desc">While the floor work is happening, Izaak sits with you — concepts, calendar, content, growth.</p>
+    <div class="eng-line"></div>
+    <ul class="eng-list">
+      <li>
+        <span class="eng-n">01</span>
+        <div><strong>New concepts, designed for the room</strong><span>Café programme, cocktail list, event formats — drawn for Shoreditch, not pulled from a template</span></div>
+      </li>
+      <li>
+        <span class="eng-n">02</span>
+        <div><strong>An events calendar that holds together</strong><span>Three months programmed, designed, and run</span></div>
+      </li>
+      <li>
+        <span class="eng-n">03</span>
+        <div><strong>Long-term targeted campaigns</strong><span>Built around your branding, sustained across months — not a one-off launch</span></div>
+      </li>
+      <li>
+        <span class="eng-n">04</span>
+        <div><strong>A growth roadmap, built together</strong><span>A phased plan for what comes after we leave — yours to keep</span></div>
+      </li>
+      <li>
+        <span class="eng-n">05</span>
+        <div><strong>Operational manual</strong><span>Designed for your business — the system, written down, yours to keep</span></div>
+      </li>
+    </ul>
+    <div class="eng-rate-inline">
+      <span class="eng-rate-label">How it will work</span>
+      <span class="eng-rate-text">Rate of <strong>€10 per hour</strong> &nbsp;·&nbsp; minimum <strong>150 hours per month</strong></span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     DAHKA — BRINGING A SMILE TO SERVICE
+     ═══════════════════════════════════════════ -->
+<section class="slide smile-cover">
+  <div class="smile-bg"></div>
+  <div class="smile-inner">
+    <div class="label">The Dahka Proposal</div>
+    <h2>Bringing a Smile<br>to Service</h2>
+    <div class="smile-divider"></div>
+    <p class="smile-sub">We learn your business from the inside.</p>
+  </div>
+  <div class="slide-footer"><span>The Proposal</span><span>—</span></div>
+</section>
+
+</body>
+</html>
