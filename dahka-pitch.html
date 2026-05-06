@@ -462,7 +462,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 28px;
     font-weight: 300;
-    color: var(--terracotta);
+    color: rgba(26,18,16,0.18);
     line-height: 1;
   }
   .dahka-svc-name {
@@ -486,7 +486,7 @@
     font-size: 10px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--terracotta);
+    color: rgba(26,18,16,0.4);
     display: block;
     margin-bottom: 5px;
     opacity: 1;
@@ -538,7 +538,7 @@
   }
   .smile-divider {
     width: 56px; height: 1px;
-    background: var(--terracotta);
+    background: rgba(255,255,255,0.3);
     margin: 0 auto 24px;
   }
   .smile-sub {
@@ -687,7 +687,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 26px;
     font-weight: 300;
-    color: var(--terracotta);
+    color: rgba(0,0,0,0.15);
     line-height: 1;
     flex-shrink: 0;
     width: 26px;
@@ -698,6 +698,49 @@
     .engagement-split { grid-template-columns: 1fr; }
     .eng-panel { padding: 48px 28px; }
   }
+
+  /* ── ON THE FLOOR — mandala decoration ── */
+  .eng-slide--floor .eng-slide-content {
+    position: relative;
+    overflow: hidden;
+  }
+  .eng-slide--floor .eng-slide-content::before {
+    content: '';
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' width='200' height='200' fill='none' stroke='white' stroke-width='0.7' stroke-opacity='1'%3E%3Crect x='20' y='20' width='160' height='160'/%3E%3Crect x='20' y='20' width='160' height='160' transform='rotate(45 100 100)'/%3E%3Ccircle cx='100' cy='100' r='70'/%3E%3Ccircle cx='100' cy='100' r='50'/%3E%3Ccircle cx='100' cy='100' r='30'/%3E%3Ccircle cx='100' cy='100' r='10'/%3E%3Cpath d='M100 30 Q120 100 100 170 Q80 100 100 30 Z'/%3E%3Cpath d='M30 100 Q100 80 170 100 Q100 120 30 100 Z'/%3E%3Cpath d='M50 50 Q100 85 150 50 Q115 100 150 150 Q100 115 50 150 Q85 100 50 50 Z'/%3E%3Ccircle cx='100' cy='30' r='3'/%3E%3Ccircle cx='100' cy='170' r='3'/%3E%3Ccircle cx='30' cy='100' r='3'/%3E%3Ccircle cx='170' cy='100' r='3'/%3E%3Ccircle cx='50' cy='50' r='2'/%3E%3Ccircle cx='150' cy='50' r='2'/%3E%3Ccircle cx='50' cy='150' r='2'/%3E%3Ccircle cx='150' cy='150' r='2'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .eng-slide--floor .eng-slide-content > * { position: relative; z-index: 1; }
+
+  /* ── EXEC PLAN — mandala watermark ── */
+  .exec-plan { position: relative; overflow: hidden; }
+  .exec-plan::before {
+    content: '';
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' width='200' height='200' fill='none' stroke='white' stroke-width='0.7' stroke-opacity='1'%3E%3Crect x='20' y='20' width='160' height='160'/%3E%3Crect x='20' y='20' width='160' height='160' transform='rotate(45 100 100)'/%3E%3Ccircle cx='100' cy='100' r='70'/%3E%3Ccircle cx='100' cy='100' r='50'/%3E%3Ccircle cx='100' cy='100' r='30'/%3E%3Ccircle cx='100' cy='100' r='10'/%3E%3Cpath d='M100 30 Q120 100 100 170 Q80 100 100 30 Z'/%3E%3Cpath d='M30 100 Q100 80 170 100 Q100 120 30 100 Z'/%3E%3Cpath d='M50 50 Q100 85 150 50 Q115 100 150 150 Q100 115 50 150 Q85 100 50 50 Z'/%3E%3Ccircle cx='100' cy='30' r='3'/%3E%3Ccircle cx='100' cy='170' r='3'/%3E%3Ccircle cx='30' cy='100' r='3'/%3E%3Ccircle cx='170' cy='100' r='3'/%3E%3Ccircle cx='50' cy='50' r='2'/%3E%3Ccircle cx='150' cy='50' r='2'/%3E%3Ccircle cx='50' cy='150' r='2'/%3E%3Ccircle cx='150' cy='150' r='2'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .exec-plan > * { position: relative; z-index: 1; }
 
   /* ── EXECUTION PLAN ── */
   .exec-plan {
@@ -742,7 +785,7 @@
     border-right: 1px solid rgba(255,255,255,0.06);
   }
   .exec-lane--strategy {
-    background: var(--cream);
+    background: #fff;
   }
   .exec-lane-label {
     font-family: 'Cormorant Garamond', serif;
@@ -753,7 +796,7 @@
     line-height: 1;
   }
   .exec-lane--floor .exec-lane-label { color: var(--off-white); }
-  .exec-lane--strategy .exec-lane-label { color: var(--dark-brown); }
+  .exec-lane--strategy .exec-lane-label { color: #000; }
   .exec-lane-sub {
     font-size: 11px;
     font-weight: 600;
@@ -763,14 +806,14 @@
     margin-bottom: 28px;
   }
   .exec-lane--floor .exec-lane-sub { color: rgba(255,255,255,0.3); }
-  .exec-lane--strategy .exec-lane-sub { color: rgba(66,39,22,0.35); }
+  .exec-lane--strategy .exec-lane-sub { color: rgba(0,0,0,0.3); }
   .exec-divider {
     width: 40px;
     height: 1px;
     margin-bottom: 28px;
   }
-  .exec-lane--floor .exec-divider { background: var(--terracotta); }
-  .exec-lane--strategy .exec-divider { background: var(--dark-brown); opacity: 0.3; }
+  .exec-lane--floor .exec-divider { background: rgba(255,255,255,0.18); }
+  .exec-lane--strategy .exec-divider { background: rgba(0,0,0,0.15); }
   .exec-item {
     display: flex;
     gap: 18px;
@@ -780,7 +823,7 @@
   }
   .exec-item:last-child { border-bottom: none; }
   .exec-lane--floor .exec-item { border-bottom-color: rgba(255,255,255,0.06); }
-  .exec-lane--strategy .exec-item { border-bottom-color: rgba(66,39,22,0.07); }
+  .exec-lane--strategy .exec-item { border-bottom-color: rgba(0,0,0,0.06); }
   .exec-num {
     font-family: 'Cormorant Garamond', serif;
     font-size: 26px;
@@ -789,8 +832,8 @@
     flex-shrink: 0;
     width: 24px;
   }
-  .exec-lane--floor .exec-num { color: var(--terracotta); }
-  .exec-lane--strategy .exec-num { color: rgba(66,39,22,0.22); }
+  .exec-lane--floor .exec-num { color: rgba(255,255,255,0.35); }
+  .exec-lane--strategy .exec-num { color: rgba(0,0,0,0.15); }
   .exec-item strong {
     display: block;
     font-family: 'Cormorant Garamond', serif;
@@ -809,10 +852,10 @@
   }
   .exec-lane--floor .exec-item strong { color: var(--off-white); }
   .exec-lane--floor .exec-item span { color: rgba(255,255,255,0.38); }
-  .exec-lane--strategy .exec-item strong { color: var(--dark-brown); }
-  .exec-lane--strategy .exec-item span { color: rgba(66,39,22,0.5); }
+  .exec-lane--strategy .exec-item strong { color: #000; }
+  .exec-lane--strategy .exec-item span { color: rgba(0,0,0,0.4); }
   .exec-convergence {
-    background: var(--terracotta);
+    background: #000;
     padding: 30px 60px;
     display: flex;
     align-items: center;
@@ -822,7 +865,7 @@
   .exec-conv-line {
     flex: 1;
     height: 1px;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.15);
   }
   .exec-conv-label {
     font-family: 'Cormorant Garamond', serif;
