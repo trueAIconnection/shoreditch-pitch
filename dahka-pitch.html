@@ -699,6 +699,148 @@
     .eng-panel { padding: 48px 28px; }
   }
 
+  /* ── EXECUTION PLAN ── */
+  .exec-plan {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    scroll-snap-align: start;
+    background: var(--warm-black);
+  }
+  .exec-header {
+    padding: 52px 60px 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    flex-shrink: 0;
+  }
+  .exec-header .label {
+    color: rgba(255,255,255,0.3);
+    display: block;
+    margin-bottom: 10px;
+    opacity: 1;
+  }
+  .exec-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(32px, 4vw, 54px);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--off-white);
+  }
+  .exec-lanes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex: 1;
+    min-height: 0;
+  }
+  .exec-lane {
+    padding: 48px 52px;
+    display: flex;
+    flex-direction: column;
+  }
+  .exec-lane--floor {
+    background: #000;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+  .exec-lane--strategy {
+    background: var(--cream);
+  }
+  .exec-lane-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    line-height: 1;
+  }
+  .exec-lane--floor .exec-lane-label { color: var(--off-white); }
+  .exec-lane--strategy .exec-lane-label { color: var(--dark-brown); }
+  .exec-lane-sub {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 6px;
+    margin-bottom: 28px;
+  }
+  .exec-lane--floor .exec-lane-sub { color: rgba(255,255,255,0.3); }
+  .exec-lane--strategy .exec-lane-sub { color: rgba(66,39,22,0.35); }
+  .exec-divider {
+    width: 40px;
+    height: 1px;
+    margin-bottom: 28px;
+  }
+  .exec-lane--floor .exec-divider { background: var(--terracotta); }
+  .exec-lane--strategy .exec-divider { background: var(--dark-brown); opacity: 0.3; }
+  .exec-item {
+    display: flex;
+    gap: 18px;
+    padding: 20px 0;
+    border-bottom: 1px solid;
+    align-items: flex-start;
+  }
+  .exec-item:last-child { border-bottom: none; }
+  .exec-lane--floor .exec-item { border-bottom-color: rgba(255,255,255,0.06); }
+  .exec-lane--strategy .exec-item { border-bottom-color: rgba(66,39,22,0.07); }
+  .exec-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 24px;
+  }
+  .exec-lane--floor .exec-num { color: var(--terracotta); }
+  .exec-lane--strategy .exec-num { color: rgba(66,39,22,0.22); }
+  .exec-item strong {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 5px;
+    line-height: 1.1;
+  }
+  .exec-item span {
+    display: block;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+  .exec-lane--floor .exec-item strong { color: var(--off-white); }
+  .exec-lane--floor .exec-item span { color: rgba(255,255,255,0.38); }
+  .exec-lane--strategy .exec-item strong { color: var(--dark-brown); }
+  .exec-lane--strategy .exec-item span { color: rgba(66,39,22,0.5); }
+  .exec-convergence {
+    background: var(--terracotta);
+    padding: 30px 60px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-shrink: 0;
+  }
+  .exec-conv-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.3);
+  }
+  .exec-conv-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 2.5vw, 30px);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #fff;
+    white-space: nowrap;
+  }
+  @media (max-width: 900px) {
+    .exec-header { padding: 36px 24px 24px; }
+    .exec-lanes { grid-template-columns: 1fr; }
+    .exec-lane { padding: 36px 24px; }
+    .exec-convergence { padding: 24px 24px; flex-direction: column; gap: 14px; text-align: center; }
+    .exec-conv-line { width: 60px; height: 1px; flex: none; }
+  }
+
   @media print {
     html { scroll-snap-type: none; }
     .slide { min-height: auto; page-break-after: always; }
@@ -1329,6 +1471,69 @@
       <span class="eng-rate-text">Rate of <strong>€10 per hour</strong> &nbsp;·&nbsp; minimum <strong>150 hours per month</strong></span>
     </div>
   </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     DAHKA — THE EXECUTION PLAN
+     ═══════════════════════════════════════════ -->
+<section class="exec-plan">
+  <div class="exec-header">
+    <span class="label">May — June</span>
+    <h2>Two Tracks.<br>One Goal.</h2>
+  </div>
+  <div class="exec-lanes">
+    <div class="exec-lane exec-lane--floor">
+      <div class="exec-lane-label">On the Floor</div>
+      <div class="exec-lane-sub">Worker — Shoreditch</div>
+      <div class="exec-divider"></div>
+      <div class="exec-item">
+        <span class="exec-num">01</span>
+        <div>
+          <strong>System Integration</strong>
+          <span>Natural embedding into the team — shifts, service flow, and day-to-day operations from the inside</span>
+        </div>
+      </div>
+      <div class="exec-item">
+        <span class="exec-num">02</span>
+        <div>
+          <strong>Strengths Mapping &amp; Team Rhythm</strong>
+          <span>Understanding what works, who delivers, and how the floor actually moves — observed, not assumed</span>
+        </div>
+      </div>
+    </div>
+    <div class="exec-lane exec-lane--strategy">
+      <div class="exec-lane-label">Alongside</div>
+      <div class="exec-lane-sub">Izaak — Strategy</div>
+      <div class="exec-divider"></div>
+      <div class="exec-item">
+        <span class="exec-num">01</span>
+        <div>
+          <strong>Branding Strategy</strong>
+          <span>Voice, visual direction, and positioning — built from what we learn on the floor, not from a brief</span>
+        </div>
+      </div>
+      <div class="exec-item">
+        <span class="exec-num">02</span>
+        <div>
+          <strong>Content Plan</strong>
+          <span>A structured calendar across all channels — ready to activate the moment it's signed off</span>
+        </div>
+      </div>
+      <div class="exec-item">
+        <span class="exec-num">03</span>
+        <div>
+          <strong>Events Plan &amp; Design</strong>
+          <span>Format, calendar, partnerships, creative direction — designed, packaged, and ready to run</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="exec-convergence">
+    <div class="exec-conv-line"></div>
+    <span class="exec-conv-label">Events &mdash; Live by June 1st</span>
+    <div class="exec-conv-line"></div>
+  </div>
+  <div class="slide-footer"><span>The Plan</span><span>—</span></div>
 </section>
 
 <!-- ═══════════════════════════════════════════
